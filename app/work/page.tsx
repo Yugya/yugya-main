@@ -1,5 +1,7 @@
 import Link from "next/link";
+import DemoIndex from "@/components/DemoIndex";
 import { pageMetadata } from "@/lib/metadata";
+import "@/components/demos/demos.css";
 
 export const metadata = pageMetadata({
   title: "Projects & Technical Implementations — Yugya",
@@ -54,6 +56,7 @@ export default function WorkPage() {
                 <li><span className="num">01</span><a href="#aama-pathshala">Aama Pathshala — completed web build</a></li>
                 <li><span className="num">02</span><a href="#server-infrastructure">Linux server baseline — blueprint</a></li>
                 <li><span className="num">03</span><a href="#aayushai-core">AayushAI Core — prototype</a></li>
+                <li><span className="num">04</span><a href="#demos">Interactive demos — operate them yourself</a></li>
               </ul>
             </div>
           </div>
@@ -292,6 +295,27 @@ export default function WorkPage() {
               <div><dt>Status</dt><dd>Functional experiment</dd></div>
             </dl>
           </article>
+        </div>
+      </section>
+
+      <section className="section" id="demos" aria-labelledby="demos-title">
+        <div className="shell">
+          <div className="section-head-split">
+            <div>
+              <span className="hero-kicker">Interactive demonstrations</span>
+              <h2 id="demos-title">Five demos you can operate yourself.</h2>
+            </div>
+            <Link className="text-link" href="/contact/">
+              Discuss a build <span className="arrow" aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
+            Each demonstration below runs in your browser with fictional sample data — no
+            signup, nothing installed, and a reset button that restores the original records.
+            Every module is labelled for what it honestly is: real in-browser logic, a simulated
+            workflow, or sample data.
+          </p>
+          <DemoIndex />
         </div>
       </section>
 

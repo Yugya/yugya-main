@@ -1,6 +1,10 @@
 import Link from "next/link";
+import DemoIndex from "@/components/DemoIndex";
+import FounderCards from "@/components/FounderCards";
 import { pageMetadata } from "@/lib/metadata";
-import { FOUNDER_NAMES } from "@/lib/site";
+import { FOUNDER_NAMES, YUGS_URL } from "@/lib/site";
+import "@/components/demos/demos.css";
+import "@/components/yugs.css";
 
 export const metadata = pageMetadata({
   title: "Yugya — Technology built for the work that matters",
@@ -77,6 +81,89 @@ export default function HomePage() {
             <div>
               <dt>Inquiry response</dt>
               <dd>Aim to reply in 1–2 business days</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section className="section section-dark yugs-launch" id="yugs" aria-labelledby="yugs-title">
+        <div className="shell">
+          <div className="yugs-meta">
+            <span className="yugs-flag">
+              <span className="yugs-flag-dot" aria-hidden="true" />
+              New product
+            </span>
+            <span>Yugs Bot — AI assistant</span>
+            <span className="yugs-meta-by">Yugya Technologies</span>
+          </div>
+
+          <div className="yugs-stage">
+            <figure className="yugs-mark reveal">
+              <div className="yugs-mark-frame">
+                <img
+                  src="/assets/brand/yugs-neon-robot.png"
+                  alt="Yugs neon robot product mark"
+                  width={1254}
+                  height={1254}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption>
+                <span>Product mark</span>
+                <span>Yugs Bot</span>
+              </figcaption>
+            </figure>
+
+            <div className="yugs-copy reveal">
+              <span className="hero-kicker">Introducing</span>
+              <h2 className="yugs-name" id="yugs-title">
+                Yugs<span className="yugs-name-dot" aria-hidden="true">.</span>
+              </h2>
+              <p className="yugs-tagline">
+                Chat, create artifacts, and get things done faster.
+              </p>
+              <p className="yugs-body">
+                Yugs is the AI assistant built by Yugya Technologies — our own product, built and
+                maintained in-house, and open to anyone with a free account.
+              </p>
+              <div className="hero-actions">
+                <a
+                  className="btn btn-primary"
+                  href={YUGS_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Open Yugs <span className="arrow" aria-hidden="true">↗</span>
+                </a>
+                <a
+                  className="btn btn-secondary"
+                  href={`${YUGS_URL}register`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Create an account
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <dl className="yugs-facts">
+            <div>
+              <dt>Product</dt>
+              <dd>Yugs Bot</dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd>AI assistant / web app</dd>
+            </div>
+            <div>
+              <dt>Built by</dt>
+              <dd>Yugya Technologies</dd>
+            </div>
+            <div>
+              <dt>Access</dt>
+              <dd>Free sign-up</dd>
             </div>
           </dl>
         </div>
@@ -192,6 +279,27 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="demo-index-title">
+        <div className="shell">
+          <div className="section-head-split">
+            <div>
+              <span className="hero-kicker">Interactive demonstrations</span>
+              <h2 id="demo-index-title">Operate our work in your browser.</h2>
+            </div>
+            <Link className="text-link" href="/work/#demos">
+              All demos <span className="arrow" aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
+            Five demonstration builds run directly in this page: a restaurant website, a
+            school tool, an inventory tracker, a team board, and a server console. Each uses
+            fictional sample data, includes a skippable guided tour, and labels every workflow
+            honestly as real in-browser logic, a simulated workflow, or sample data.
+          </p>
+          <DemoIndex />
         </div>
       </section>
 
@@ -368,6 +476,22 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section" id="founders" aria-labelledby="home-founders-title">
+        <div className="shell">
+          <div className="section-head">
+            <span className="section-index" aria-hidden="true">03</span>
+            <div>
+              <h2 id="home-founders-title">The two people behind the studio.</h2>
+              <p>
+                Yugya was founded by {FOUNDER_NAMES}. Project enquiries can go to either
+                co-founder directly.
+              </p>
+            </div>
+          </div>
+          <FounderCards />
         </div>
       </section>
 

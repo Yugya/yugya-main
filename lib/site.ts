@@ -1,4 +1,5 @@
 export const SITE_URL = "https://yugya.com";
+export const YUGS_URL = "https://yugs.yugya.com/";
 export const SITE_EMAIL = "hello@yugya.com";
 export const SITE_LOCATION = "Kapilvastu / Rupandehi, Nepal · UTC +5:45";
 export const SITE_RESPONSE = "1–2 business days";
