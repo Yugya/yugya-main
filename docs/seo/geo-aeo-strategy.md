@@ -71,7 +71,7 @@ This does not guarantee AI inclusion. It makes the business and its services eas
 - H2/H3 hierarchy that describes the content.
 - The contact FAQ answers billing, hosting, support, `.com.np` domains and pricing basis.
 - The services page explains what each service is, who it is for, the problem it solves, what is delivered and what happens after delivery.
-- The work page labels each project honestly as a completed build, blueprint or prototype.
+- The work page labels each entry honestly as a live client website, blueprint, prototype or demo.
 - Demo pages label every workflow as real in-browser logic, simulated, or sample data.
 
 ### Honest positioning

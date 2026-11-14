@@ -41,6 +41,11 @@ export type DemoInfo = {
   /** Per-product accent used by the demo application UI. */
   accent: string;
   accentDark: string;
+  /** Genuine screenshot of the demo application, 720 × 411. */
+  preview: string;
+  /** 360 × 206 thumbnail used by the demo index. */
+  previewThumb: string;
+  previewAlt: string;
   metaTitle: string;
   metaDescription: string;
   ogDescription: string;
@@ -90,6 +95,10 @@ export const DEMOS: DemoInfo[] = [
     serviceParam: "web",
     accent: "#A14E2A",
     accentDark: "#D08152",
+    preview: "/assets/demos/savor.webp",
+    previewThumb: "/assets/demos/savor-360.webp",
+    previewAlt:
+      "Savor restaurant website demo showing the home page, menu navigation, and a Nepali thali photograph",
     metaTitle: "Savor — Interactive Restaurant Website Demo — Yugya",
     metaDescription:
       "An interactive demonstration by Yugya: a restaurant website with a structured menu, course filtering, and table reservation requests running in your browser with sample data.",
@@ -130,6 +139,10 @@ export const DEMOS: DemoInfo[] = [
     serviceParam: "web",
     accent: "#2F6D62",
     accentDark: "#6FB3A5",
+    preview: "/assets/demos/campusflow.webp",
+    previewThumb: "/assets/demos/campusflow-360.webp",
+    previewAlt:
+      "CampusFlow school tool demo showing the day sheet, class attendance counts, and the student register",
     metaTitle: "CampusFlow — Interactive School Management Demo — Yugya",
     metaDescription:
       "An interactive demonstration by Yugya: a school office tool with a daily register, a searchable student roster, and a notice board, running in your browser with sample data.",
@@ -171,6 +184,10 @@ export const DEMOS: DemoInfo[] = [
     serviceParam: "web",
     accent: "#8A5A16",
     accentDark: "#C99B4E",
+    preview: "/assets/demos/stockwise.webp",
+    previewThumb: "/assets/demos/stockwise-360.webp",
+    previewAlt:
+      "Stockwise shop ledger demo showing the day book, bills written today, and a supplier reorder list",
     metaTitle: "Stockwise — Interactive Shop Stock Ledger Demo — Yugya",
     metaDescription:
       "An interactive demonstration by Yugya: a shop counter and stock ledger with a day book, stock cards, multi-line bills, and supplier reorder lists, running in your browser with sample data.",
@@ -213,6 +230,10 @@ export const DEMOS: DemoInfo[] = [
     serviceParam: "web",
     accent: "#2E4A68",
     accentDark: "#9DB9D6",
+    preview: "/assets/demos/worknest.webp",
+    previewThumb: "/assets/demos/worknest-360.webp",
+    previewAlt:
+      "Worknest contractor job book demo showing job slips across booked, on site, and closed lanes",
     metaTitle: "Worknest — Interactive Contractor Job Book Demo — Yugya",
     metaDescription:
       "An interactive demonstration by Yugya: a contractor\u2019s job book with a dispatch board, job slips, a payment book, and a crew sheet, running in your browser with sample data.",
@@ -254,6 +275,10 @@ export const DEMOS: DemoInfo[] = [
     serviceParam: "vps",
     accent: "#2F7A5F",
     accentDark: "#8AD9B4",
+    preview: "/assets/demos/serverscope.webp",
+    previewThumb: "/assets/demos/serverscope-360.webp",
+    previewAlt:
+      "ServerScope operations console demo showing three hosts, a host inspector, and a hardening runbook",
     metaTitle: "ServerScope — Interactive Operations Console Demo — Yugya",
     metaDescription:
       "An interactive demonstration by Yugya: an operations console with a fleet reading, a hardening runbook, a simulated deployment transcript, and an incident log, running in your browser.",

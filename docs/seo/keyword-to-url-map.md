@@ -17,7 +17,10 @@ One page should own one primary search intent. This map prevents cannibalization
 | `/services/#domain-dns` | domain registration and DNS guidance Nepal | .com.np domain; .np domain requirements; Cloudflare DNS; SPF DKIM DMARC | Informational + transactional | Anchor within `/services/`. |
 | `/services/#automation` | business automation Nepal | custom scripts; Python automation; workflow automation; data processing | Commercial | Anchor within `/services/`. |
 | `/services/#maintenance` | website maintenance Nepal | server maintenance; security patching; backup verification | Commercial | Anchor within `/services/`. |
-| `/work/` | web development portfolio Nepal | website case studies Nepal; technical implementations; interactive demos | Commercial investigation | Collection page. |
+| `/work/` | web development portfolio Nepal / live client websites | website case studies Nepal; live client work; technical implementations; interactive demos | Commercial investigation | Collection page. |
+| `/work/#kohinoor-restaurant` | Kohinoor Restaurant website | restaurant website development Nepal; Kohinoor Restaurant Tilottama | Brand + commercial investigation | Anchor on `/work/` for a live client site. Do not create a separate page for the client name. |
+| `/work/#samajik-abhiyaan` | Samajik Abhiyaan website | Nepali news website development; Samajik Abhiyaan Kapilvastu | Brand + commercial investigation | Anchor on `/work/` for a live client site. Sorvx is the owner's former brand; the public card presents the work as Yugya. |
+| `/work/#aama-pathshala` | Aama Pathshala website | preschool website development Nepal; bilingual school website | Brand + commercial investigation | Anchor on `/work/` for a live client site. Do not create a separate page for the client name. |
 | `/work/savor/` | restaurant website development Nepal | restaurant website demo; menu website; table reservation website | Commercial investigation | Long-tail demo intent. Sample data is labelled. |
 | `/work/campusflow/` | school management software Nepal | school attendance software; student roster; school notice board | Commercial investigation | Long-tail demo intent. |
 | `/work/stockwise/` | inventory management software Nepal | shop stock ledger; stock control; supplier reorder list | Commercial investigation | Long-tail demo intent. |

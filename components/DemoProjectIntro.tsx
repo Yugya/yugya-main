@@ -69,6 +69,25 @@ export default function DemoProjectIntro({ demo, children }: DemoProjectIntroPro
         </div>
       </section>
 
+      <div className="shell demo-preview-wrap">
+        <figure className="demo-preview reveal">
+          <div className="demo-preview-frame">
+            <img
+              src={demo.preview}
+              alt={demo.previewAlt}
+              width={720}
+              height={411}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            <span>{demo.name} — live demo preview</span>
+            <span>Sample data · runs in your browser</span>
+          </figcaption>
+        </figure>
+      </div>
+
       <section className="section" aria-labelledby="demo-problem-title">
         <div className="shell">
           <div className="project-detail-grid" id="problem">

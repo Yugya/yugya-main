@@ -125,7 +125,9 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 │  ├─ GoogleTranslate.tsx   "use client" — footer language widget
 │  ├─ DemoProjectIntro.tsx  server — shared demo intro-page template
 │  ├─ DemoIndex.tsx         server — demo index rows used by home + work
+│  ├─ LiveProjects.tsx      server — live client entries + compact home rows
 │  ├─ FounderCards.tsx      server — founder portrait cards used by home + about
+│  ├─ ServiceVisual.tsx     server — inline reference diagrams for the service scopes
 │  ├─ IntroSequence.tsx     "use client" — brand entry title card (timing, skip)
 │  ├─ intro.css             intro title card, flash, split curtain, scroll lock
 │  ├─ yugs.css              Yugs launch panel styles (imported by app/page.tsx)
@@ -137,17 +139,21 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 │  │                        FOUNDERS
 │  ├─ metadata.ts           pageMetadata() helper
 │  ├─ schema.ts             Organization / WebSite / page / Service / FAQ schema nodes
+│  ├─ projects.ts           verified live client project data and screenshot paths
 │  └─ demos/                registry.ts (all demo copy, DEMO_DISCLAIMER), tour.ts
 │                           (TourStep type), five <demo>.ts files (fictional sample
 │                           data + tour steps)
 ├─ public/
 │  ├─ .nojekyll             keeps GitHub Pages from ignoring /_next
-│  ├─ aama-pathshala.jpg    featured project screenshot
 │  ├─ assets/brand/         logo lockups, mark, animation, OG image, palette,
 │  │                        yugs-neon-robot.png (Yugs product mark, as supplied)
-│  └─ assets/founders/      founder portraits (640/960/1200 JPEG, used by FounderCards)
+│  ├─ assets/demos/         genuine demo screenshots (720 px) + 360 px index thumbnails
+│  ├─ assets/founders/      founder portraits (640/960/1200 JPEG, used by FounderCards)
+│  └─ assets/projects/      live client screenshots (desktop/mobile) + index thumbnails
 ├─ docs/
 │  ├─ demo-portfolio-strategy.md   research → interface mapping for the demos
+│  ├─ visual-credibility.md        page-by-page imagery audit, research and asset rules
+│  ├─ live-projects.md             URL verification, screenshot provenance, attribution
 │  └─ seo/                  research, baseline audit, keyword map, technical/GEO/content
 │                           strategy, implementation report, post-launch checklist
 ├─ scripts/serve.mjs        static preview server for `npm start`
@@ -192,7 +198,7 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 | --- | --- |
 | `/` | `yugs`, `founders` |
 | `/services/` | `web-development`, `server-infrastructure`, `domain-dns`, `automation`, `maintenance` |
-| `/work/` | `aama-pathshala`, `server-infrastructure`, `aayushai-core`, `demos` |
+| `/work/` | `live-projects`, `kohinoor-restaurant`, `samajik-abhiyaan`, `aama-pathshala`, `server-infrastructure`, `aayushai-core`, `demos` |
 | `/about/` | `approach`, `principles`, `founders` |
 
 **Query parameters:** `/contact/?service=` accepts `web`, `vps`, `dns`, `automation`,
@@ -250,6 +256,15 @@ Typography: Newsreader (display), Figtree (UI/body), JetBrains Mono (labels, tec
 
 **Brand assets** live in `public/assets/brand/` and are used exactly as supplied — never recolour,
 crop, or regenerate them.
+
+**Imagery rules.** Use only genuine Yugya artefacts (project screenshots, founder portraits,
+official marks, actual demo screenshots) or clearly labelled explanatory diagrams. Never use stock
+people, offices or facilities as if they were Yugya's. Never fabricate dashboards, infrastructure
+readings, client logos, reviews or testimonials. Demo screenshots are sample data and keep the
+"Sample data · runs in your browser" caption. Technical diagrams state their limits ("Reference
+architecture", "Not a live status report"). New figures reuse the existing frame tokens
+(`--color-surface-soft`, hairline border, mono caption); do not introduce a parallel visual language.
+Full audit and asset rules: `docs/visual-credibility.md`.
 
 The entry sequence and the Yugs launch panel introduce no new colours: both are built from these
 tokens. The intro uses the inverse tokens, so it looks identical in light and dark themes; the
@@ -446,12 +461,12 @@ real `index.html`, no rewrite rules are needed.
 
 | Route | Sections |
 | --- | --- |
-| `/` | hero + brand animation, hero meta, Yugs launch panel (`#yugs`), capabilities (5), featured project, demo index (5), manifesto + 4 principles, 4-stage process, studio, founders (`#founders`), CTA |
-| `/services/` | page hero + in-page index, 5 service articles (what/who, problem, deliverables, after delivery, CTA), scopes & boundaries table, CTA |
-| `/work/` | 3 entries (Aama Pathshala, Linux server baseline, AayushAI Core) each with terminal/ledger, interactive demos index (`#demos`), transparency section, CTA |
-| `/work/<demo>/` ×5 | page hero + launcher, problem/solution, modules with interaction labels, how-it-works + disclaimer, other demos, contextual CTA |
+| `/` | hero + brand animation, hero meta, Yugs launch panel (`#yugs`), capabilities (5), live client work (3), demo index (5), manifesto + 4 principles, 4-stage process, studio, founders (`#founders`), CTA |
+| `/services/` | page hero + in-page index, 5 service articles (what/who, problem, deliverables, after delivery, CTA) each with a genuine project visual or reference diagram, scopes & boundaries table, CTA |
+| `/work/` | live client projects (`#live-projects`: Kohinoor Restaurant, Samajik Abhiyaan, Aama Pathshala), build notes & prototypes (Linux server baseline, AayushAI Core), interactive demos index (`#demos`), transparency section, CTA |
+| `/work/<demo>/` ×5 | page hero + launcher, genuine demo screenshot preview, problem/solution, modules with interaction labels, how-it-works + disclaimer, other demos, contextual CTA |
 | `/about/` | page hero + lockup, company purpose, 4 principles, founders, location & collaboration, CTA |
-| `/contact/` | page hero + details, email guide + checklist, enquiry form panel, FAQ (4 items) |
+| `/contact/` | page hero + details, email guide + checklist, enquiry form panel, FAQ (5 items) |
 
 Every page ends with the shared footer. Every page starts with the shared header and the
 "Skip to main content" link targeting `#main` — keep `id="main"` on each page's `<main>`.

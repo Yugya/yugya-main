@@ -33,6 +33,42 @@ body.demo-open {
 }
 
 /* --------------------------------------------------------------------------
+   Genuine demo screenshot on the intro page
+   -------------------------------------------------------------------------- */
+
+.demo-preview-wrap {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.demo-preview {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.demo-preview-frame {
+  padding: clamp(0.7rem, 1.4vw, 1.1rem);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+}
+
+.demo-preview-frame img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}
+
+.demo-preview figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.7rem;
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+}
+
+/* --------------------------------------------------------------------------
    Overlay and chrome
    -------------------------------------------------------------------------- */
 
@@ -514,7 +550,7 @@ body.demo-open {
 
 .demo-row {
   display: grid;
-  grid-template-columns: 3.5rem minmax(0, 0.9fr) minmax(0, 1.5fr) 1.5rem;
+  grid-template-columns: 3.5rem minmax(0, 0.9fr) minmax(0, 1.4fr) 150px 1.5rem;
   gap: clamp(1rem, 3vw, 2.5rem);
   align-items: baseline;
   padding: 1.35rem 0;
@@ -566,6 +602,15 @@ body.demo-open {
   letter-spacing: 0.01em;
 }
 
+.demo-row-thumb {
+  align-self: center;
+  width: 150px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-soft);
+}
+
 .demo-row .arrow {
   justify-self: end;
   color: var(--color-secondary);
@@ -581,6 +626,16 @@ body.demo-open {
    Responsive
    -------------------------------------------------------------------------- */
 
+@media (max-width: 1100px) {
+  .demo-row {
+    grid-template-columns: 3.5rem minmax(0, 0.9fr) minmax(0, 1.4fr) 120px 1.5rem;
+  }
+
+  .demo-row-thumb {
+    width: 120px;
+  }
+}
+
 @media (max-width: 900px) {
   .demo-others {
     grid-template-columns: 1fr;
@@ -590,6 +645,10 @@ body.demo-open {
     grid-template-columns: 2.5rem minmax(0, 1fr) 1.25rem;
     gap: 0.55rem 0.9rem;
     padding: 1.2rem 0;
+  }
+
+  .demo-row-thumb {
+    display: none;
   }
 
   .demo-row .num {
@@ -623,6 +682,11 @@ body.demo-open {
 }
 
 @media (max-width: 640px) {
+  .demo-preview figcaption {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
   .demo-chrome-actions {
     margin-left: 0;
   }

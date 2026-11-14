@@ -129,7 +129,7 @@ curl -sS https://www.yugya.com/sitemap.xml
 - [ ] PageSpeed Insights mobile and desktop: `https://www.yugya.com/`
 - [ ] PageSpeed Insights: `https://www.yugya.com/services/`
 - [ ] Record LCP, INP and CLS. Targets: ≤ 2.5 s, ≤ 200 ms, ≤ 0.1.
-- [ ] Confirm the home page no longer preloads `/aama-pathshala.jpg`.
+- [ ] Confirm the home page does not preload below-the-fold project screenshots.
 - [ ] Confirm fonts are served from the same origin and have `display: swap`.
 - [ ] Confirm no new console errors.
 - [ ] Confirm no layout shift from images or the intro.

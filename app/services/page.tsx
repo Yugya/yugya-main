@@ -1,5 +1,6 @@
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
+import { ServiceDiagramFigure } from "@/components/ServiceVisual";
 import { pageMetadata } from "@/lib/metadata";
 import { SERVICE_NODES, webPageNode } from "@/lib/schema";
 
@@ -91,6 +92,22 @@ export default function ServicesPage() {
                     <span className="service-status">Available offering</span>
                   </div>
                 </div>
+                <figure className="service-visual reveal">
+                  <div className="service-visual-frame">
+                    <img
+                      src="/assets/projects/aama-desktop.webp"
+                      alt="Aama Pathshala bilingual preschool website home page showing the school hero, logo and admissions buttons"
+                      width={1440}
+                      height={900}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <figcaption>
+                    <span>Live build — Aama Pathshala</span>
+                    <span>Desktop screenshot · Nov 2026</span>
+                  </figcaption>
+                </figure>
                 <div className="service-body">
                   <div>
                     <h3>What it is &amp; who needs it</h3>
@@ -140,6 +157,11 @@ export default function ServicesPage() {
                     <span className="service-status">Available offering</span>
                   </div>
                 </div>
+                <ServiceDiagramFigure
+                  variant="server"
+                  caption="Reference architecture — documented VPS baseline"
+                  note="Not a live status report"
+                />
                 <div className="service-body">
                   <div>
                     <h3>What it is &amp; who needs it</h3>
@@ -190,6 +212,11 @@ export default function ServicesPage() {
                     <span className="service-status">Available offering</span>
                   </div>
                 </div>
+                <ServiceDiagramFigure
+                  variant="dns"
+                  caption="DNS and email routing overview"
+                  note="Records documented at handover"
+                />
                 <div className="service-body">
                   <div>
                     <h3>What it is &amp; who needs it</h3>
@@ -238,6 +265,11 @@ export default function ServicesPage() {
                     <span className="service-status">Scoped engagement</span>
                   </div>
                 </div>
+                <ServiceDiagramFigure
+                  variant="automation"
+                  caption="Documented automation pattern"
+                  note="Human review where the outcome matters"
+                />
                 <div className="service-body">
                   <div>
                     <h3>What it is &amp; who needs it</h3>
@@ -284,6 +316,11 @@ export default function ServicesPage() {
                     <span className="service-status">Available offering</span>
                   </div>
                 </div>
+                <ServiceDiagramFigure
+                  variant="maintenance"
+                  caption="Monthly maintenance routine"
+                  note="Findings documented each cycle"
+                />
                 <div className="service-body">
                   <div>
                     <h3>What it is &amp; who needs it</h3>

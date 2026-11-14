@@ -25,6 +25,15 @@ export default function DemoIndex() {
               {demo.features.length} modules · Guided tour · {demo.tourNote}
             </p>
           </div>
+          <img
+            className="demo-row-thumb"
+            src={demo.previewThumb}
+            alt={`${demo.name} — ${demo.kind} demo preview`}
+            width={360}
+            height={206}
+            loading="lazy"
+            decoding="async"
+          />
           <span className="arrow" aria-hidden="true">
             ↗
           </span>

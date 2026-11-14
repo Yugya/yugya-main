@@ -61,13 +61,19 @@ build needs no extra packages. Set `PORT` or `HOST` to change the bind address.
 │  ├─ SiteFooter.tsx        footer, build-time year refreshed by an inline script
 │  ├─ RevealOnScroll.tsx    IntersectionObserver reveal animation
 │  ├─ EnquiryForm.tsx       contact form (mailto + clipboard, no server)
-│  └─ JsonLd.tsx            safe JSON-LD emitter
+│  ├─ JsonLd.tsx            safe JSON-LD emitter
+│  ├─ LiveProjects.tsx      live client entries and compact home rows
+│  └─ ServiceVisual.tsx     inline reference diagrams for the service scopes
 ├─ lib/
 │  ├─ site.ts               site URL, email, nav, service links
 │  ├─ metadata.ts           per-page metadata helper
-│  └─ schema.ts             Organization, WebSite, page, Service and FAQ schema
-├─ public/                  brand art and project screenshots
-├─ docs/seo/                research, audit, keyword map, technical/GEO/content docs
+│  ├─ schema.ts             Organization, WebSite, page, Service and FAQ schema
+│  └─ projects.ts           verified live client data and screenshot paths
+├─ public/                  brand art, live-client/demo screenshots, founder portraits
+├─ docs/
+│  ├─ visual-credibility.md page-by-page imagery audit, research and asset rules
+│  ├─ live-projects.md      live URL verification, screenshot provenance and attribution
+│  └─ seo/                  research, audit, keyword map, technical/GEO/content docs
 ├─ scripts/serve.mjs        static preview server for `npm start`
 ├─ scripts/seo-check.mjs    zero-dependency export SEO checks
 └─ next.config.ts           static export configuration

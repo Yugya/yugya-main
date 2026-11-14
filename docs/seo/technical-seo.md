@@ -231,14 +231,14 @@ No new navigation was added. Existing links were audited:
 
 Implemented:
 
-- `loading="lazy"` + `decoding="async"` on the below-the-fold `/aama-pathshala.jpg` on `/` and `/work/`;
+- `loading="lazy"` + `decoding="async"` on below-the-fold project screenshots, including the live-client desktop/mobile captures and the demo previews;
 - `loading="lazy"` + `decoding="async"` on the home studio logo and footer logo;
 - existing lazy loading on founder portraits and the Yugs mark was preserved;
 - all images keep explicit `width`/`height` (CLS protection);
 - founder portraits keep `srcset`/`sizes`;
 - `<picture>` WebP sources remain.
 
-Effect: the home page no longer emits `<link rel="preload" as="image" href="/aama-pathshala.jpg">`. The only preloads left are the four self-hosted font files and a low-priority script preload.
+Effect: the home page does not preload below-the-fold project screenshots. The only preloads left are the four self-hosted font files and a low-priority script preload.
 
 Not changed:
 

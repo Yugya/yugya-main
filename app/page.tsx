@@ -2,6 +2,7 @@ import Link from "next/link";
 import DemoIndex from "@/components/DemoIndex";
 import FounderCards from "@/components/FounderCards";
 import JsonLd from "@/components/JsonLd";
+import { LiveProjectIndex } from "@/components/LiveProjects";
 import { pageMetadata } from "@/lib/metadata";
 import { webPageNode } from "@/lib/schema";
 import { FOUNDER_NAMES, YUGS_URL } from "@/lib/site";
@@ -250,55 +251,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-soft" aria-labelledby="featured-title">
+      <section className="section section-soft" aria-labelledby="live-work-title">
         <div className="shell">
           <div className="section-head-split">
             <div>
-              <span className="hero-kicker">Selected work / 01</span>
-              <h2 id="featured-title">A completed build, shown plainly.</h2>
+              <span className="hero-kicker">Live client work</span>
+              <h2 id="live-work-title">Websites in production.</h2>
             </div>
-            <Link className="text-link" href="/work/">
-              All projects <span className="arrow" aria-hidden="true">↗</span>
+            <Link className="text-link" href="/work/#live-projects">
+              View live projects <span className="arrow" aria-hidden="true">↗</span>
             </Link>
           </div>
-
-          <div className="featured-project">
-            <Link className="work-plate reveal" href="/work/#aama-pathshala">
-              <div className="work-plate-frame">
-                <img
-                  src="/aama-pathshala.jpg"
-                  alt="Aama Pathshala preschool website interface showing facilities and contact points"
-                  width={1160}
-                  height={652}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="work-plate-caption">
-                <span>Aama Pathshala / website</span>
-                <span>Completed web build</span>
-              </div>
-            </Link>
-
-            <div className="project-copy reveal">
-              <p className="project-meta">Education / bilingual interface</p>
-              <h3>Aama Pathshala — a bilingual preschool website.</h3>
-              <p>
-                A responsive website built for a preschool in Nepal. The site provides school
-                facility details, bus route information, and contact links in both English and
-                Nepali.
-              </p>
-              <ul className="project-facts">
-                <li><span>Project type</span><span>Educational website build</span></li>
-                <li><span>Stack</span><span>HTML5, CSS3, vanilla JS</span></li>
-                <li><span>Key feature</span><span>In-page EN / NP toggle</span></li>
-                <li><span>Status</span><span>Completed build</span></li>
-              </ul>
-              <Link className="text-link" href="/work/#aama-pathshala">
-                Read project notes <span className="arrow" aria-hidden="true">↗</span>
-              </Link>
-            </div>
-          </div>
+          <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
+            Real client websites, live on their own domains. Each project is shown at the same
+            scale, with no featured slot.
+          </p>
+          <LiveProjectIndex />
         </div>
       </section>
 
