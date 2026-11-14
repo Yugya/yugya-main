@@ -1,23 +1,41 @@
 import Link from "next/link";
 import DemoIndex from "@/components/DemoIndex";
 import FounderCards from "@/components/FounderCards";
+import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import { webPageNode } from "@/lib/schema";
 import { FOUNDER_NAMES, YUGS_URL } from "@/lib/site";
 import "@/components/demos/demos.css";
 import "@/components/yugs.css";
 
+const HOME_TITLE = "Yugya — Web Development Company in Nepal";
+const HOME_DESCRIPTION =
+  "Yugya is a web development company in Nepal building fast, accessible websites, custom web applications, and Linux server infrastructure for organizations that need dependable systems.";
+
 export const metadata = pageMetadata({
-  title: "Yugya — Technology built for the work that matters",
-  description:
-    "Yugya is an independent technology studio in Nepal building websites, software tools, Linux server configurations, and dependable digital systems.",
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
   path: "/",
   ogDescription:
-    "Websites, software tools, Linux server configuration, and technical maintenance from an independent studio in Nepal.",
+    "Websites, web applications, Linux server setup, and technical maintenance from an independent technology studio in Nepal.",
 });
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    webPageNode({
+      path: "/",
+      name: HOME_TITLE,
+      description: HOME_DESCRIPTION,
+    }),
+  ],
+};
 
 export default function HomePage() {
   return (
-    <main id="main">
+    <>
+      <JsonLd data={homeJsonLd} />
+      <main id="main">
       <section className="home-hero">
         <div className="shell">
           <div className="hero-grid">
@@ -252,6 +270,8 @@ export default function HomePage() {
                   alt="Aama Pathshala preschool website interface showing facilities and contact points"
                   width={1160}
                   height={652}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="work-plate-caption">
@@ -426,6 +446,8 @@ export default function HomePage() {
                   alt="Yugya logo with wordmark and tagline"
                   width={670}
                   height={535}
+                  loading="lazy"
+                  decoding="async"
                 />
               </picture>
               <figcaption>
@@ -524,6 +546,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

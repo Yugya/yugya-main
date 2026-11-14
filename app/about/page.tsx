@@ -1,20 +1,39 @@
 import Link from "next/link";
 import FounderCards from "@/components/FounderCards";
+import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import { webPageNode } from "@/lib/schema";
 import { FOUNDER_NAMES } from "@/lib/site";
 
+const ABOUT_TITLE = "About Yugya — Web Development Studio in Nepal";
+const ABOUT_DESCRIPTION =
+  "Learn how Yugya works: an independent web development studio in Kapilvastu / Rupandehi, Nepal, focused on clear scoping, clean code, and documented handover.";
+
 export const metadata = pageMetadata({
-  title: "About Yugya — Purpose, Focus & Principles",
-  description:
-    "Why Yugya exists: practical technology delivery from Nepal. Learn about our technical focus, engineering approach, and operating principles.",
+  title: ABOUT_TITLE,
+  description: ABOUT_DESCRIPTION,
   path: "/about/",
   ogDescription:
-    "Founded in Nepal to deliver dependable software, server infrastructure, and digital services.",
+    "Founded in Nepal to deliver dependable websites, software, and server infrastructure.",
 });
+
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    webPageNode({
+      path: "/about/",
+      name: ABOUT_TITLE,
+      description: ABOUT_DESCRIPTION,
+      type: "AboutPage",
+    }),
+  ],
+};
 
 export default function AboutPage() {
   return (
-    <main id="main">
+    <>
+      <JsonLd data={aboutJsonLd} />
+      <main id="main">
       <section className="page-hero">
         <div className="shell">
           <div className="page-hero-grid">
@@ -242,6 +261,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

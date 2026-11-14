@@ -16,7 +16,7 @@ Project guide for AI agents and new contributors. Read this before changing anyt
 
 ## 1. What this project is
 
-The Yugya website (`https://yugya.com`) built on Next.js at the repository root. It is a
+The Yugya website (`https://www.yugya.com`) built on Next.js at the repository root. It is a
 **faithful port of the previous hand-written site**, not a redesign.
 
 The legacy HTML pages (`index.html`, `services.html`, `work.html`, `about.html`, `contact.html`,
@@ -81,6 +81,7 @@ npm run dev        # dev server, http://localhost:3000
 npm run typecheck  # tsc --noEmit
 npm run lint       # eslint (flat config)
 npm run build      # static export into ./out
+npm run seo:check  # validate canonicals, metadata, JSON-LD, sitemap, robots, links
 npm start          # serve the built ./out on http://127.0.0.1:3000
 ```
 
@@ -88,7 +89,8 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
   change the bind address. Do not replace it with the `serve` package — that package pulls in
   vulnerable `compression` versions and breaks the clean audit.
 - **`next start` does not work** with `output: "export"`. It will error. Use `npm start`.
-- Always run `typecheck`, `lint`, and `audit` before declaring work done, then `build`.
+- Always run `typecheck`, `lint`, and `audit` before declaring work done, then `build` and
+  `seo:check`.
 
 ---
 
@@ -118,6 +120,7 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 │  ├─ SiteFooter.tsx        server — footer + inline year-refresh script
 │  ├─ RevealOnScroll.tsx    "use client" — IntersectionObserver reveal
 │  ├─ EnquiryForm.tsx       "use client" — mailto/clipboard form
+│  ├─ JsonLd.tsx            server — safe JSON-LD emitter
 │  ├─ ThemeToggle.tsx       "use client" — light/dark theme switch
 │  ├─ GoogleTranslate.tsx   "use client" — footer language widget
 │  ├─ DemoProjectIntro.tsx  server — shared demo intro-page template
@@ -133,6 +136,7 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 │  ├─ site.ts               SITE_URL, YUGS_URL, email, location, nav items, service links,
 │  │                        FOUNDERS
 │  ├─ metadata.ts           pageMetadata() helper
+│  ├─ schema.ts             Organization / WebSite / page / Service / FAQ schema nodes
 │  └─ demos/                registry.ts (all demo copy, DEMO_DISCLAIMER), tour.ts
 │                           (TourStep type), five <demo>.ts files (fictional sample
 │                           data + tour steps)
@@ -143,8 +147,11 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 │  │                        yugs-neon-robot.png (Yugs product mark, as supplied)
 │  └─ assets/founders/      founder portraits (640/960/1200 JPEG, used by FounderCards)
 ├─ docs/
-│  └─ demo-portfolio-strategy.md   research → interface mapping for the demos
+│  ├─ demo-portfolio-strategy.md   research → interface mapping for the demos
+│  └─ seo/                  research, baseline audit, keyword map, technical/GEO/content
+│                           strategy, implementation report, post-launch checklist
 ├─ scripts/serve.mjs        static preview server for `npm start`
+├─ scripts/seo-check.mjs    zero-dependency export SEO checks (`npm run seo:check`)
 ├─ .github/workflows/static.yml   builds and deploys `out/` to GitHub Pages
 ├─ next.config.ts           static export config
 ├─ eslint.config.mjs        flat config
@@ -176,7 +183,8 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 - Internal navigation: always `next/link` with a trailing slash (`/services/`).
 - Cross-page fragments: `Link href="/services/#web-development"`.
 - Same-page fragments and `mailto:`: plain `<a>` (a `Link` would trigger a router navigation).
-- Do not hardcode `https://yugya.com` in pages — use `SITE_URL` from `lib/site.ts`.
+- Do not hardcode `https://www.yugya.com` in pages — use `SITE_URL` from `lib/site.ts`. The apex
+  domain permanently redirects to `www`, so canonicals and sitemaps must name `www`.
 
 **Anchor ids that must not be renamed** (linked from nav, footer, home page, and service CTAs):
 
@@ -323,8 +331,12 @@ launch panel is a normal `.section-dark` band.
   `FOUNDERS`. Single source of truth.
 - `lib/metadata.ts` → `pageMetadata({ title, description, path, ogTitle?, ogDescription? })`
   produces canonical URL, Open Graph, and Twitter card. `path` must start **and** end with `/`.
-- Root `metadata` + `viewport` (`themeColor: #F7F4EF`) live in `app/layout.tsx`, together with
-  Organization JSON-LD.
+- `lib/schema.ts` → `organizationNode()`, `websiteNode()`, `webPageNode()`, `SERVICE_NODES`,
+  `faqPageNode()`. `components/JsonLd.tsx` emits each graph safely.
+- Root `metadata` + `viewport` (`themeColor: #F7F4EF`) live in `app/layout.tsx`, together with the
+  global Organization + WebSite JSON-LD. Each page adds its own page-level node.
+- `npm run seo:check` validates canonicals, metadata, JSON-LD, sitemap, robots and internal links
+  against `out/`. Run it after `npm run build`. Full SEO documentation is in `docs/seo/`.
 - `app/sitemap.ts` and `app/robots.ts` both declare `export const dynamic = "force-static"`. This is
   **required** — without it the build fails under `output: "export"`.
 - Icons come from `app/icon.png` and `app/apple-icon.png`; the App Router emits the `<link>` tags.
@@ -379,6 +391,7 @@ npm run typecheck
 npm run lint
 npm audit        # must print "found 0 vulnerabilities"
 npm run build
+npm run seo:check
 ```
 
 Then confirm the export:

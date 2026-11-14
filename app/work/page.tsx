@@ -1,16 +1,33 @@
 import Link from "next/link";
 import DemoIndex from "@/components/DemoIndex";
+import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/metadata";
+import { webPageNode } from "@/lib/schema";
 import "@/components/demos/demos.css";
 
+const WORK_TITLE = "Web Development Portfolio & Projects — Yugya";
+const WORK_DESCRIPTION =
+  "See completed builds and technical implementations by Yugya, including a bilingual preschool website, a Linux server baseline, and interactive web app demos.";
+
 export const metadata = pageMetadata({
-  title: "Projects & Technical Implementations — Yugya",
-  description:
-    "Projects and technical reference implementations by Yugya: Aama Pathshala bilingual preschool website, Linux server deployment blueprint, and a local developer tool prototype.",
+  title: WORK_TITLE,
+  description: WORK_DESCRIPTION,
   path: "/work/",
   ogDescription:
-    "Transparent view of completed builds, reference architectures, and software prototypes.",
+    "A transparent view of completed builds, reference architectures, and interactive software demonstrations.",
 });
+
+const workJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    webPageNode({
+      path: "/work/",
+      name: WORK_TITLE,
+      description: WORK_DESCRIPTION,
+      type: "CollectionPage",
+    }),
+  ],
+};
 
 const caddyfile = `yugya.com, www.yugya.com {
     root * /var/www/yugya
@@ -31,7 +48,9 @@ const prototypeOutput = `$ aayushai --status
 
 export default function WorkPage() {
   return (
-    <main id="main">
+    <>
+      <JsonLd data={workJsonLd} />
+      <main id="main">
       <section className="page-hero">
         <div className="shell">
           <div className="page-hero-grid">
@@ -80,6 +99,8 @@ export default function WorkPage() {
                 alt="Aama Pathshala preschool website interface showing facilities and contact points"
                 width={1160}
                 height={652}
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -384,6 +405,7 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }

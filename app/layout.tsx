@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, JetBrains_Mono, Newsreader } from "next/font/google";
 import IntroSequence from "@/components/IntroSequence";
+import JsonLd from "@/components/JsonLd";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import { FOUNDERS, SITE_URL } from "@/lib/site";
+import { organizationNode, websiteNode } from "@/lib/schema";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 import "@/components/intro.css";
 
@@ -28,7 +30,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteDescription =
-  "Yugya is an independent technology studio in Nepal building websites, software tools, Linux server configurations, and dependable digital systems.";
+  "Yugya is an independent web development company in Nepal building fast, accessible websites, custom web applications, and Linux server infrastructure.";
 
 // Runs before first paint: resolves the saved/system theme onto <html> so the
 // page never flashes the wrong palette, then marks JS as available for reveals.
@@ -112,7 +114,7 @@ const themeScript = `
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Yugya — Technology built for the work that matters",
+  title: "Yugya — Web Development Company in Nepal",
   description: siteDescription,
   applicationName: "Yugya",
   authors: [{ name: "Yugya", url: SITE_URL }],
@@ -127,27 +129,9 @@ export const viewport: Viewport = {
   themeColor: "#F7F4EF",
 };
 
-const organizationJsonLd = {
+const globalJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Yugya",
-  url: SITE_URL,
-  logo: `${SITE_URL}/assets/brand/yugya-logo.png`,
-  email: "hello@yugya.com",
-  description:
-    "Independent technology studio delivering websites, software tools, Linux server configurations, and technical maintenance.",
-  foundingDate: "2024",
-  founder: FOUNDERS.map((founder) => ({
-    "@type": "Person",
-    name: founder.name,
-    email: founder.email,
-    url: founder.portfolio,
-  })),
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Kapilvastu / Rupandehi",
-    addressCountry: "NP",
-  },
+  "@graph": [organizationNode(), websiteNode()],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -177,12 +161,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteFooter />
         <RevealOnScroll />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
-          }}
-        />
+        <JsonLd data={globalJsonLd} />
       </body>
     </html>
   );

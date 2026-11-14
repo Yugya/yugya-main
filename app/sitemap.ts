@@ -22,11 +22,10 @@ const ROUTES: Array<{
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
+  // No <lastmod>: a build timestamp is not a verified last significant change,
+  // and Google only uses <lastmod> when it is consistently accurate.
   return ROUTES.map(({ path, priority, changeFrequency }) => ({
     url: `${SITE_URL}${path}`,
-    lastModified,
     changeFrequency,
     priority,
   }));

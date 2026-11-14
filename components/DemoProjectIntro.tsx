@@ -1,11 +1,13 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import JsonLd from "@/components/JsonLd";
 import {
   DEMO_DISCLAIMER,
   DEMOS,
   INTERACTION_LABELS,
   type DemoInfo,
 } from "@/lib/demos/registry";
+import { webPageNode } from "@/lib/schema";
 import { SITE_EMAIL } from "@/lib/site";
 
 type DemoProjectIntroProps = {
@@ -23,8 +25,20 @@ export default function DemoProjectIntro({ demo, children }: DemoProjectIntroPro
   const servicePath =
     demo.serviceParam === "vps" ? "/services/#server-infrastructure" : "/services/#web-development";
 
+  const demoJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      webPageNode({
+        path: demo.path,
+        name: `${demo.name} — ${demo.kind} demo`,
+        description: demo.metaDescription,
+      }),
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={demoJsonLd} />
       <section className="page-hero">
         <div className="shell">
           <div className="page-hero-grid">
