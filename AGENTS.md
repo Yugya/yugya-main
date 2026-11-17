@@ -117,6 +117,7 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 │  └─ apple-icon.png        iOS touch icon (public/assets/brand/apple-touch-icon.png)
 ├─ components/
 │  ├─ SiteHeader.tsx        "use client" — sticky header, mobile drawer, active link
+│  ├─ AnnouncementBar.tsx   "use client" — dismissible release strip above the header
 │  ├─ SiteFooter.tsx        server — footer + inline year-refresh script
 │  ├─ RevealOnScroll.tsx    "use client" — IntersectionObserver reveal
 │  ├─ EnquiryForm.tsx       "use client" — mailto/clipboard form
@@ -124,16 +125,18 @@ npm start          # serve the built ./out on http://127.0.0.1:3000
 │  ├─ ThemeToggle.tsx       "use client" — light/dark theme switch
 │  ├─ GoogleTranslate.tsx   "use client" — footer language widget
 │  ├─ DemoProjectIntro.tsx  server — shared demo intro-page template
-│  ├─ DemoIndex.tsx         server — demo index rows used by home + work
+│  ├─ DemoIndex.tsx         "use client" — demo index rows (home, work, services) with the
+│  │                        cursor-following screenshot preview
 │  ├─ LiveProjects.tsx      server — live client entries + compact home rows
 │  ├─ FounderCards.tsx      server — founder portrait cards used by home + about
 │  ├─ ServiceVisual.tsx     server — inline reference diagrams for the service scopes
 │  ├─ IntroSequence.tsx     "use client" — brand entry title card (timing, skip)
 │  ├─ intro.css             intro title card, flash, split curtain, scroll lock
+│  ├─ announce.css          announcement bar styles (imported by app/layout.tsx)
 │  ├─ yugs.css              Yugs launch panel styles (imported by app/page.tsx)
 │  └─ demos/                demo portfolio: demo-launcher, demo-window, guided-tour,
 │                           demo-shared (window context), five demo apps + per-app CSS,
-│                           demos.css (shared chrome / tour / index styles)
+│                           demos.css (shared chrome / tour / index / preview styles)
 ├─ lib/
 │  ├─ site.ts               SITE_URL, YUGS_URL, email, location, nav items, service links,
 │  │                        FOUNDERS
@@ -213,7 +216,10 @@ Server components by default. Client components, each justified:
 | Component | Client because |
 | --- | --- |
 | `SiteHeader` | `usePathname`, open/closed drawer state, scroll listener, `body.nav-open` |
+| `AnnouncementBar` | writes the dismissal to `document.documentElement` and `localStorage` |
+| `DemoIndex` | pointer tracking for the cursor-following demo screenshot preview |
 | `RevealOnScroll` | `IntersectionObserver` + `usePathname` (re-observe after navigation) |
+| `SmoothScroll` | wheel/trackpad velocity + friction animation; `usePathname` resync after navigation |
 | `EnquiryForm` | Form input handling, clipboard, `window.location` |
 | `ThemeToggle` | theme state and writes to `document.documentElement` |
 | `GoogleTranslate` | external script loading and widget state |
@@ -267,8 +273,12 @@ architecture", "Not a live status report"). New figures reuse the existing frame
 Full audit and asset rules: `docs/visual-credibility.md`.
 
 The entry sequence and the Yugs launch panel introduce no new colours: both are built from these
-tokens. The intro uses the inverse tokens, so it looks identical in light and dark themes; the
-launch panel is a normal `.section-dark` band.
+tokens. The intro uses the inverse tokens, so it looks identical in light and dark themes. The Yugs
+band is the same in both themes too: a sage (`--color-sage`) field framing a `--color-primary` panel.
+Body copy never sits on the sage field, which cannot carry it.
+
+The announcement bar is a `--color-primary` strip with inverse text, above the header in normal
+flow. It is hidden by `html[data-announce="off"]`, set before paint from localStorage.
 
 ---
 
@@ -282,11 +292,26 @@ launch panel is a normal `.section-dark` band.
 - Active link: `aria-current="page"`, which CSS turns into the underline via `::after`. It is
   rendered statically per page, so it works before hydration.
 
+### `AnnouncementBar`
+- Sits above `SiteHeader` in normal flow, so the sticky header still pins at `top: 0` and needs no
+  offset; the bar scrolls away with the page.
+- Dismiss writes `html[data-announce="off"]` and `localStorage["yugya-announce"]="off"`. The
+  pre-paint script in `app/layout.tsx` re-applies the attribute before the first frame on later
+  visits, so the bar never flashes. The node stays mounted; CSS owns visibility.
+- The link is external (`YUGS_URL`) with `rel="noreferrer noopener"`; the close button is labelled
+  "Dismiss announcement".
+
 ### `RevealOnScroll`
 - Observes every `.reveal`, adds `.is-visible`, unobserves.
 - `threshold: 0.12`, `rootMargin: "0px 0px -40px 0px"` — identical to the original script.
 - `prefers-reduced-motion` or no `IntersectionObserver` → reveal everything immediately.
 - Depends on `.js` being on `<html>`; without it, `.js .reveal` never applies and content is visible.
+
+### `SmoothScroll`
+- Intercepts **wheel/trackpad** input only. Each event adds distance to a target; a critically damped, time-corrected follow closes the remaining distance (`0.115` per 60fps frame). It glides after the gesture without overshoot or oscillation.
+- Writes with `scrollTo({ behavior: "instant" })` so CSS smooth scrolling remains available for anchors and route changes. Any native/programmatic scroll that differs from the controller position resyncs it.
+- Native scrolling is kept for touch (already inertial), reduced motion, keyboard, anchors, horizontal wheel gestures, form controls, scrollable descendants, `data-native-scroll`, the intro lock and `body.nav-open`.
+- Sets `html[data-inertia-scroll="on"]` while active so the behaviour is inspectable; reduced motion removes the attribute. No dependencies and no visual output.
 
 ### `EnquiryForm`
 - Fields are **uncontrolled**; values are read with `FormData`. Only the textarea is stateful
@@ -324,6 +349,17 @@ launch panel is a normal `.section-dark` band.
 - The mask owns the font-size (`clamp(4.5rem, 15vw, 13rem)`) so its em padding scales with the
   word; the negative margins keep the flex layout measuring only the line box. `--intro-word-shift`
   (135%) is the rest offset and must stay large enough that no ink is visible before the rise.
+
+### `DemoIndex` (home, work, services)
+- Rows are the same editorial list everywhere. On a fine pointer with motion allowed and at least
+  901 px, the genuine 720 px demo screenshot follows the cursor in `.demo-preview-float`; the
+  caption keeps the required "Sample data · runs in your browser" line.
+- The inline 360 px `.demo-row-thumb` is the fallback for touch, reduced motion and no-JS. Do not
+  remove it when changing the hover preview; the CSS media query swaps between them.
+- The preview is fixed, `pointer-events: none`, `aria-hidden`, flips at the right and bottom edges,
+  clears on scroll/resize/blur, and warms the full images after idle. `lib/demos/registry.ts` owns
+  `preview`, `previewThumb` and `previewAlt`.
+- Only the demo index gets a preview. Do not lift it into a global cursor follower.
 
 ### `DemoWindow` / `GuidedTour` (demo portfolio)
 - Demo apps mount only while the overlay is open (`{open && …}` in `DemoLauncher`), so they are
@@ -382,6 +418,11 @@ launch panel is a normal `.section-dark` band.
   `data-intro-arm`). Do not move that decision into an effect: the intro would paint over the site
   and then hide itself, and the first frame would be wrong. The 7s last-resort release exists so a
   failed hydration can never trap the page.
+- The same script applies `html[data-announce="off"]` from localStorage. Keep that check inline:
+  moving it into an effect flashes the announcement bar on every page load.
+- The hover preview is a CSS capability decision
+  (`(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) and (min-width:
+  901px)`). Do not force it on touch with JS state — the inline thumbnail is the fallback.
 - Never replace the intro scroll lock with JS measurement. `scrollbar-gutter: stable` is what keeps
   CLS at 0 when `overflow: hidden` is lifted.
 - The intro wordmark is hidden at rest. If `--intro-word-shift` is reduced without re-checking the
@@ -426,7 +467,10 @@ emits as a streaming placeholder.
 
 **Manual smoke test** (`npm start`): mobile drawer opens/closes; header gains `.is-scrolled` on
 scroll; reveals fire; character counter updates; form validation path shows the error; a bad URL
-renders the on-brand 404.
+renders the on-brand 404. Dismiss the announcement bar and reload — it must stay hidden without a
+flash; clear `localStorage["yugya-announce"]` to bring it back. Hover a demo row on `/`, `/services/`
+or `/work/` — the screenshot follows the cursor, flips near the right edge, and disappears on leave;
+with reduced motion the inline thumbnail should show instead.
 
 ---
 
@@ -461,8 +505,8 @@ real `index.html`, no rewrite rules are needed.
 
 | Route | Sections |
 | --- | --- |
-| `/` | hero + brand animation, hero meta, Yugs launch panel (`#yugs`), capabilities (5), live client work (3), demo index (5), manifesto + 4 principles, 4-stage process, studio, founders (`#founders`), CTA |
-| `/services/` | page hero + in-page index, 5 service articles (what/who, problem, deliverables, after delivery, CTA) each with a genuine project visual or reference diagram, scopes & boundaries table, CTA |
+| `/` | hero + brand animation, hero meta, Yugs announcement panel (`#yugs`), capabilities (5), live client work (3), demo index (5), manifesto + 4 principles, 4-stage process, studio, founders (`#founders`), CTA |
+| `/services/` | page hero + in-page index, 5 service articles (what/who, problem, deliverables, after delivery, CTA) each with a genuine project visual or reference diagram, interactive demos (`#demos`), scopes & boundaries table, CTA |
 | `/work/` | live client projects (`#live-projects`: Kohinoor Restaurant, Samajik Abhiyaan, Aama Pathshala), build notes & prototypes (Linux server baseline, AayushAI Core), interactive demos index (`#demos`), transparency section, CTA |
 | `/work/<demo>/` ×5 | page hero + launcher, genuine demo screenshot preview, problem/solution, modules with interaction labels, how-it-works + disclaimer, other demos, contextual CTA |
 | `/about/` | page hero + lockup, company purpose, 4 principles, founders, location & collaboration, CTA |

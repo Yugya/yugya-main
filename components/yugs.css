@@ -1,14 +1,30 @@
 /* ==========================================================================
    Yugs launch panel (home page)
-   A full-bleed forest band that treats the product as a release rather than a
-   card: mono release strip, oversized product name, the supplied mark, and the
-   facts on a hairline plinth. Everything uses existing tokens — no new colours,
-   no gradients, no glow effects added on top of the artwork.
+   A colour-dominant announcement: a full-bleed sage field frames a deep forest
+   panel, so the product reads as a release rather than a card. Inside are the
+   mono release strip, oversized product name, the supplied mark, and the facts
+   on a hairline plinth. Everything uses existing tokens — no new colours, no
+   gradients, no glow effects added on top of the artwork.
    ========================================================================== */
 
 .yugs-launch {
   position: relative;
   overflow: clip;
+  background: var(--color-sage);
+  padding-block: clamp(2rem, 4.5vw, 4rem);
+}
+
+/* The dark panel carries the copy; the sage field around it is the
+   announcement colour. Body text never sits on sage, which cannot carry it. */
+.yugs-panel {
+  position: relative;
+  padding: 0 clamp(1.5rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--color-primary);
+  color: var(--color-inverse-text);
+}
+
+.yugs-panel .yugs-meta {
+  border-top: 0;
 }
 
 /* --- Release strip -------------------------------------------------------- */
@@ -217,6 +233,10 @@
 }
 
 @media (max-width: 720px) {
+  .yugs-panel {
+    padding-inline: 1.15rem;
+  }
+
   .yugs-meta {
     gap: 0.5rem 1rem;
     font-size: 0.6rem;

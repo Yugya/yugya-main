@@ -11,14 +11,14 @@ import "@/components/yugs.css";
 
 const HOME_TITLE = "Yugya — Web Development Company in Nepal";
 const HOME_DESCRIPTION =
-  "Yugya is a web development company in Nepal building fast, accessible websites, custom web applications, and Linux server infrastructure for organizations that need dependable systems.";
+  "Yugya is a web development company in Nepal building clear, dependable websites for shops, restaurants, schools and organisations. Written scope, honest costs and full handover.";
 
 export const metadata = pageMetadata({
   title: HOME_TITLE,
   description: HOME_DESCRIPTION,
   path: "/",
   ogDescription:
-    "Websites, web applications, Linux server setup, and technical maintenance from an independent technology studio in Nepal.",
+    "Websites and web applications for businesses in Nepal, with a written scope, client-owned hosting and full handover.",
 });
 
 const homeJsonLd = {
@@ -41,25 +41,24 @@ export default function HomePage() {
         <div className="shell">
           <div className="hero-grid">
             <div className="hero-copy reveal">
-              <span className="hero-kicker">Independent technology studio — Nepal</span>
-              <h1>
-                Technology built for the <em>work that matters.</em>
-              </h1>
+              <span className="hero-kicker">Independent web development studio — Nepal</span>
+              <h1>Websites for businesses in Nepal.</h1>
               <p className="lead hero-lead">
-                Yugya builds websites, software tools, and dependable digital systems for
-                businesses and individuals who need technology to work properly.
+                Yugya designs and builds websites for shops, restaurants, schools and
+                organisations. Your customers can see what you offer, find your details and get
+                in touch — on any phone or computer.
               </p>
               <p className="hero-note">
-                We prioritize simplicity, clean implementation, and direct technical handover.
-                Every project is scoped around concrete operational requirements.
+                We agree the scope and price in writing before work starts. You own the domain,
+                files and hosting account, and we fix bugs for 30 days after launch.
               </p>
 
               <div className="hero-actions">
                 <Link className="btn btn-primary" href="/services/">
-                  Explore services <span className="arrow" aria-hidden="true">↗</span>
+                  See what we build <span className="arrow" aria-hidden="true">↗</span>
                 </Link>
                 <Link className="btn btn-secondary" href="/work/">
-                  View project case studies
+                  See live websites
                 </Link>
               </div>
             </div>
@@ -86,105 +85,107 @@ export default function HomePage() {
 
           <dl className="hero-meta">
             <div>
-              <dt>Core approach</dt>
-              <dd>Simplicity &amp; maintainability</dd>
+              <dt>How we start</dt>
+              <dd>A short message — no technical brief needed</dd>
             </div>
             <div>
-              <dt>Primary technologies</dt>
-              <dd>HTML5, CSS3, JS, Python, Linux, Caddy</dd>
+              <dt>Before we build</dt>
+              <dd>Written scope and itemised quote</dd>
             </div>
             <div>
-              <dt>System handover</dt>
-              <dd>Direct code &amp; server access</dd>
+              <dt>What you own</dt>
+              <dd>Your domain, files and hosting account</dd>
             </div>
             <div>
-              <dt>Inquiry response</dt>
+              <dt>Response aim</dt>
               <dd>Aim to reply in 1–2 business days</dd>
             </div>
           </dl>
         </div>
       </section>
 
-      <section className="section section-dark yugs-launch" id="yugs" aria-labelledby="yugs-title">
+      <section className="section yugs-launch" id="yugs" aria-labelledby="yugs-title">
         <div className="shell">
-          <div className="yugs-meta">
-            <span className="yugs-flag">
-              <span className="yugs-flag-dot" aria-hidden="true" />
-              New product
-            </span>
-            <span>Yugs Bot — AI assistant</span>
-            <span className="yugs-meta-by">Yugya Technologies</span>
-          </div>
+          <div className="yugs-panel">
+            <div className="yugs-meta">
+              <span className="yugs-flag">
+                <span className="yugs-flag-dot" aria-hidden="true" />
+                New product
+              </span>{" "}
+              <span>Yugs Bot — AI assistant</span>
+              <span className="yugs-meta-by">Yugya Technologies</span>
+            </div>
 
-          <div className="yugs-stage">
-            <figure className="yugs-mark reveal">
-              <div className="yugs-mark-frame">
-                <img
-                  src="/assets/brand/yugs-neon-robot.png"
-                  alt="Yugs neon robot product mark"
-                  width={1254}
-                  height={1254}
-                  loading="lazy"
-                  decoding="async"
-                />
+            <div className="yugs-stage">
+              <figure className="yugs-mark reveal">
+                <div className="yugs-mark-frame">
+                  <img
+                    src="/assets/brand/yugs-neon-robot.png"
+                    alt="Yugs neon robot product mark"
+                    width={1254}
+                    height={1254}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span>Product mark</span>
+                  <span>Yugs Bot</span>
+                </figcaption>
+              </figure>
+
+              <div className="yugs-copy reveal">
+                <span className="hero-kicker">Introducing</span>
+                <h2 className="yugs-name" id="yugs-title">
+                  Yugs<span className="yugs-name-dot" aria-hidden="true">.</span>
+                </h2>
+                <p className="yugs-tagline">
+                  Chat, create artifacts, and get things done faster.
+                </p>
+                <p className="yugs-body">
+                  Yugs is the AI assistant built by Yugya Technologies — our own product, built and
+                  maintained in-house, and open to anyone with a free account.
+                </p>
+                <div className="hero-actions">
+                  <a
+                    className="btn btn-primary"
+                    href={YUGS_URL}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Open Yugs <span className="arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a
+                    className="btn btn-secondary"
+                    href={`${YUGS_URL}register`}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Create an account
+                  </a>
+                </div>
               </div>
-              <figcaption>
-                <span>Product mark</span>
-                <span>Yugs Bot</span>
-              </figcaption>
-            </figure>
+            </div>
 
-            <div className="yugs-copy reveal">
-              <span className="hero-kicker">Introducing</span>
-              <h2 className="yugs-name" id="yugs-title">
-                Yugs<span className="yugs-name-dot" aria-hidden="true">.</span>
-              </h2>
-              <p className="yugs-tagline">
-                Chat, create artifacts, and get things done faster.
-              </p>
-              <p className="yugs-body">
-                Yugs is the AI assistant built by Yugya Technologies — our own product, built and
-                maintained in-house, and open to anyone with a free account.
-              </p>
-              <div className="hero-actions">
-                <a
-                  className="btn btn-primary"
-                  href={YUGS_URL}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Open Yugs <span className="arrow" aria-hidden="true">↗</span>
-                </a>
-                <a
-                  className="btn btn-secondary"
-                  href={`${YUGS_URL}register`}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Create an account
-                </a>
+            <dl className="yugs-facts">
+              <div>
+                <dt>Product</dt>
+                <dd>Yugs Bot</dd>
               </div>
-            </div>
+              <div>
+                <dt>Type</dt>
+                <dd>AI assistant / web app</dd>
+              </div>
+              <div>
+                <dt>Built by</dt>
+                <dd>Yugya Technologies</dd>
+              </div>
+              <div>
+                <dt>Access</dt>
+                <dd>Free sign-up</dd>
+              </div>
+            </dl>
           </div>
-
-          <dl className="yugs-facts">
-            <div>
-              <dt>Product</dt>
-              <dd>Yugs Bot</dd>
-            </div>
-            <div>
-              <dt>Type</dt>
-              <dd>AI assistant / web app</dd>
-            </div>
-            <div>
-              <dt>Built by</dt>
-              <dd>Yugya Technologies</dd>
-            </div>
-            <div>
-              <dt>Access</dt>
-              <dd>Free sign-up</dd>
-            </div>
-          </dl>
         </div>
       </section>
 
@@ -195,8 +196,8 @@ export default function HomePage() {
             <div>
               <h2 id="capabilities-title">What Yugya builds and maintains.</h2>
               <p>
-                We focus on practical technical execution rather than generic consulting. These
-                are the core services we deliver directly.
+                From a first business website to a web app or a server that needs looking after.
+                Choose a service to see what you get and what happens next.
               </p>
             </div>
           </div>
@@ -206,35 +207,35 @@ export default function HomePage() {
               <span className="num">01</span>
               <h3>Website &amp; web app development</h3>
               <p>
-                Responsive websites and web applications built with semantic HTML, clean styling,
-                and minimal script weight.
+                A site customers can visit to see what you offer, read about you and get in touch.
+                We also build web apps when you need accounts, bookings or a logged-in area.
               </p>
               <span className="arrow" aria-hidden="true">↗</span>
             </Link>
             <Link className="capability-row reveal" href="/services/#server-infrastructure">
               <span className="num">02</span>
-              <h3>Linux server setup &amp; deployment</h3>
+              <h3>Hosting, servers &amp; deployment</h3>
               <p>
-                Documented server baselines, UFW firewall rules, Caddy or Nginx reverse proxies,
-                and Git-based deployment.
+                We set up and look after the place your website lives. Hosting accounts stay in
+                your name, and you get the access and documents at handover.
               </p>
               <span className="arrow" aria-hidden="true">↗</span>
             </Link>
             <Link className="capability-row reveal" href="/services/#domain-dns">
               <span className="num">03</span>
-              <h3>Domain &amp; DNS guidance</h3>
+              <h3>Domain &amp; web address guidance</h3>
               <p>
-                Nepal <code>.np</code> application paperwork assistance, commercial TLD setup, and
-                Cloudflare DNS routing.
+                Help choosing your web address (like <code>.com.np</code> or <code>.com</code>) and
+                pointing it to the right place, including the paperwork for Nepal&apos;s .np domains.
               </p>
               <span className="arrow" aria-hidden="true">↗</span>
             </Link>
             <Link className="capability-row reveal" href="/services/#automation">
               <span className="num">04</span>
-              <h3>Business automation &amp; tooling</h3>
+              <h3>Business automation &amp; AI</h3>
               <p>
-                Lightweight Python or Node.js scripts that replace repetitive manual data work
-                with documented, logged routines.
+                Small tools that take over repeated jobs, like copying data between sheets or
+                forms. We use AI where it genuinely helps, not as a label.
               </p>
               <span className="arrow" aria-hidden="true">↗</span>
             </Link>
@@ -242,8 +243,8 @@ export default function HomePage() {
               <span className="num">05</span>
               <h3>Ongoing maintenance</h3>
               <p>
-                Scheduled OS package upgrades, TLS renewal checks, backup verification, and direct
-                engineer contact.
+                Regular checks, updates and small fixes from someone you can email directly,
+                after the launch is over.
               </p>
               <span className="arrow" aria-hidden="true">↗</span>
             </Link>
@@ -256,15 +257,16 @@ export default function HomePage() {
           <div className="section-head-split">
             <div>
               <span className="hero-kicker">Live client work</span>
-              <h2 id="live-work-title">Websites in production.</h2>
+              <h2 id="live-work-title">Websites you can open today.</h2>
             </div>
             <Link className="text-link" href="/work/#live-projects">
               View live projects <span className="arrow" aria-hidden="true">↗</span>
             </Link>
           </div>
           <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
-            Real client websites, live on their own domains. Each project is shown at the same
-            scale, with no featured slot.
+            These are real sites, live on their own domains. Start with Kohinoor Restaurant if you
+            run a restaurant, or Aama Pathshala if you run a school. Every project is shown at the
+            same scale.
           </p>
           <LiveProjectIndex />
         </div>
@@ -282,10 +284,9 @@ export default function HomePage() {
             </Link>
           </div>
           <p style={{ maxWidth: "46rem", marginBottom: "2rem" }}>
-            Five demonstration builds run directly in this page: a restaurant website, a
-            school tool, an inventory tracker, a team board, and a server console. Each uses
-            fictional sample data, includes a skippable guided tour, and labels every workflow
-            honestly as real in-browser logic, a simulated workflow, or sample data.
+            Try five tools in your browser before you contact us: a restaurant site, a school
+            tool, a shop stock ledger, a team board and a server console. Each uses fictional
+            sample data and labels what is real, simulated or sample.
           </p>
           <DemoIndex />
         </div>
@@ -310,12 +311,11 @@ export default function HomePage() {
             <div>
               <h2 id="manifesto-title" className="visually-hidden">How we work</h2>
               <blockquote>
-                Clear requirements. <em>Clean code.</em> Direct handover.
+                A clear scope. <em>Work you can see.</em> Everything in your hands.
               </blockquote>
               <p className="manifesto-note">
-                Yugya was started in Nepal to deliver practical digital systems: websites,
-                software tools, and server infrastructure built with care and documented for
-                long-term use. We work directly with clients through every phase of a project.
+                Yugya is a small studio in Nepal. We build websites and tools for local businesses
+                and organisations, and we state what we build, what you own and what happens next.
               </p>
             </div>
 
@@ -323,29 +323,29 @@ export default function HomePage() {
               <div className="principle">
                 <span className="num">01</span>
                 <div>
-                  <h3>Clarity before implementation</h3>
-                  <p>Goals, constraints, and handover expectations are defined before code is written.</p>
+                  <h3>Agree first, build second</h3>
+                  <p>We agree what you need, what you will provide and what it costs before any work starts.</p>
                 </div>
               </div>
               <div className="principle">
                 <span className="num">02</span>
                 <div>
-                  <h3>Proven tools over trend chasing</h3>
-                  <p>Established, documented tools are preferred over complex stacks that add upkeep.</p>
+                  <h3>Tools that stay simple to maintain</h3>
+                  <p>We choose well-supported tools so later changes stay straightforward.</p>
                 </div>
               </div>
               <div className="principle">
                 <span className="num">03</span>
                 <div>
-                  <h3>Transparent system handover</h3>
-                  <p>Repositories, domain settings, and server credentials go directly to the client.</p>
+                  <h3>You own what we build</h3>
+                  <p>Files, domain settings and server access go to you at handover, with written notes.</p>
                 </div>
               </div>
               <div className="principle">
                 <span className="num">04</span>
                 <div>
-                  <h3>Truth in technical descriptions</h3>
-                  <p>No invented statistics, unverified client logos, or unsupported performance claims.</p>
+                  <h3>Honest descriptions</h3>
+                  <p>No invented numbers, logos or results. We show the work itself.</p>
                 </div>
               </div>
             </div>
@@ -358,10 +358,10 @@ export default function HomePage() {
           <div className="section-head">
             <span className="section-index" aria-hidden="true">02</span>
             <div>
-              <h2 id="process-title">A straightforward, four-stage delivery process.</h2>
+              <h2 id="process-title">How working with us goes.</h2>
               <p>
-                Every engagement follows a structured progression from initial requirements
-                definition to verified production handover.
+                Four steps, with a written quote before any work starts and full access at the
+                end.
               </p>
             </div>
           </div>
@@ -369,34 +369,33 @@ export default function HomePage() {
           <div className="process-grid">
             <div className="process-step reveal">
               <span className="num" aria-hidden="true">01</span>
-              <h3>Discovery &amp; scoping</h3>
+              <h3>Tell us what you need</h3>
               <p>
-                We clarify project goals, target audience, technical constraints, and deadlines
-                upfront. We discuss what is achievable and what is out of scope.
+                Send a short message. A rough idea is enough — we&apos;ll ask questions and check
+                what you already have.
               </p>
             </div>
             <div className="process-step reveal">
               <span className="num" aria-hidden="true">02</span>
-              <h3>Architecture &amp; design</h3>
+              <h3>Agree the plan</h3>
               <p>
-                We define the simplest, most durable architecture. Content hierarchy, wireframes,
-                and data structures are agreed upon before code is written.
+                We agree the pages or features, the content you will provide and the cost in
+                writing before we start.
               </p>
             </div>
             <div className="process-step reveal">
               <span className="num" aria-hidden="true">03</span>
-              <h3>Phased build &amp; audits</h3>
+              <h3>Build and check</h3>
               <p>
-                Implementation proceeds in clear milestones. Code is checked for accessibility,
-                responsive mobile layouts, and clean markup.
+                We build in stages and check the site on phones, tablets and computers as we go.
               </p>
             </div>
             <div className="process-step reveal">
               <span className="num" aria-hidden="true">04</span>
-              <h3>Verification &amp; handover</h3>
+              <h3>Launch and hand over</h3>
               <p>
-                Deployment to production. You receive full repository access, server
-                documentation, access credentials, and 30 days of post-launch bug fixing support.
+                We publish the site, hand over all files and access, and fix bugs for 30 days
+                after launch.
               </p>
             </div>
           </div>
@@ -426,14 +425,14 @@ export default function HomePage() {
 
             <div className="studio-copy reveal">
               <span className="hero-kicker">The studio</span>
-              <h2 id="studio-title">Founded in Nepal. Focused on dependable execution.</h2>
+              <h2 id="studio-title">A small studio in Nepal. Direct access to the people building it.</h2>
               <p>
-                Yugya is an independent technology studio. We build websites, software tools, and
-                server setups for organizations that need technology to run reliably.
+                Yugya is an independent technology studio based in Kapilvastu / Rupandehi. We build
+                websites and tools for local businesses and organisations.
               </p>
               <p>
-                Our focus is on clear requirements, clean code, direct communication, and handover
-                of systems that clients can operate independently.
+                There are two founders. You speak directly with the people doing the work, from
+                the first message to handover.
               </p>
               <dl className="studio-list">
                 <div>
@@ -474,10 +473,10 @@ export default function HomePage() {
           <div className="section-head">
             <span className="section-index" aria-hidden="true">03</span>
             <div>
-              <h2 id="home-founders-title">The two people behind the studio.</h2>
+              <h2 id="home-founders-title">The two people you&apos;ll work with.</h2>
               <p>
-                Yugya was founded by {FOUNDER_NAMES}. Project enquiries can go to either
-                co-founder directly.
+                Yugya was founded by {FOUNDER_NAMES}. You can email either co-founder directly
+                about a project.
               </p>
             </div>
           </div>
@@ -489,10 +488,10 @@ export default function HomePage() {
         <div className="shell">
           <div className="cta-grid">
             <div>
-              <h2 id="cta-title">Have a project or technical requirement in mind?</h2>
+              <h2 id="cta-title">Tell us what you need. We&apos;ll explain what&apos;s possible.</h2>
               <p>
-                Whether you need a website built from scratch, a Linux server configured, or domain
-                and DNS guidance, we are ready to discuss your requirements.
+                A first website, a redesign, hosting help, or a tool for repeated work — a rough
+                description is enough. We&apos;ll reply with questions and a written quote.
               </p>
               <div className="hero-actions">
                 <Link className="btn btn-primary" href="/contact/">

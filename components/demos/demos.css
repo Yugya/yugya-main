@@ -699,3 +699,73 @@ body.demo-open {
     padding-bottom: 6rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Cursor-following demo preview
+   Only on a fine pointer with motion allowed and enough width to place it.
+   Touch, reduced-motion and narrow screens keep the inline thumbnail instead.
+   -------------------------------------------------------------------------- */
+
+.demo-preview-float {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  display: none;
+  width: clamp(300px, 30vw, 440px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: 0 16px 38px rgb(22 35 30 / 0.22);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 140ms ease;
+  will-change: transform;
+}
+
+.demo-preview-float[data-active="true"] {
+  opacity: 1;
+}
+
+.demo-preview-float img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.demo-preview-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.7rem;
+  background: var(--color-surface-soft);
+  color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.demo-preview-caption span:first-child {
+  color: var(--color-secondary);
+}
+
+.demo-index-more {
+  margin-top: 1.75rem;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) and (min-width: 901px) {
+  .demo-row {
+    grid-template-columns: 3.5rem minmax(0, 0.9fr) minmax(0, 1.5fr) 1.5rem;
+  }
+
+  .demo-row-thumb {
+    display: none;
+  }
+
+  .demo-preview-float {
+    display: block;
+  }
+}

@@ -22,8 +22,8 @@ export default function SiteFooter() {
               />
             </picture>
             <p>
-              Independent technology studio delivering websites, software tools, and server
-              configurations that organizations can rely on.
+              Independent technology studio in Nepal building websites, software tools and server
+              setups — with clear scopes and full handover.
             </p>
             <p className="footer-location">{SITE_LOCATION}</p>
           </div>

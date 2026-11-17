@@ -120,6 +120,8 @@ html {
   line-height: 1.6;
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
+  scrollbar-gutter: stable;
+  overscroll-behavior-y: contain;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -2648,14 +2650,55 @@ textarea {
 
 .js .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.62s var(--ease), transform 0.62s var(--ease);
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 0.52s ease, transform 0.72s var(--ease);
   transition-delay: var(--delay, 0ms);
 }
 
 .js .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* Compact groups enter as one gesture. The cap keeps the last item close to
+   the first, even in the five-item demo index. */
+:is(
+    .capability-list,
+    .process-grid,
+    .principle-list-large,
+    .founder-grid,
+    .demo-features,
+    .demo-others,
+    .demo-index,
+    .live-projects
+  ) > .reveal:nth-child(2) {
+  --delay: 60ms;
+}
+
+:is(
+    .capability-list,
+    .process-grid,
+    .principle-list-large,
+    .founder-grid,
+    .demo-features,
+    .demo-others,
+    .demo-index,
+    .live-projects
+  ) > .reveal:nth-child(3) {
+  --delay: 120ms;
+}
+
+:is(
+    .capability-list,
+    .process-grid,
+    .principle-list-large,
+    .founder-grid,
+    .demo-features,
+    .demo-others,
+    .demo-index,
+    .live-projects
+  ) > .reveal:nth-child(n + 4) {
+  --delay: 180ms;
 }
 
 /* --------------------------------------------------------------------------

@@ -1,19 +1,21 @@
 import Link from "next/link";
+import DemoIndex from "@/components/DemoIndex";
 import JsonLd from "@/components/JsonLd";
 import { ServiceDiagramFigure } from "@/components/ServiceVisual";
 import { pageMetadata } from "@/lib/metadata";
 import { SERVICE_NODES, webPageNode } from "@/lib/schema";
+import "@/components/demos/demos.css";
 
 const SERVICES_TITLE = "Web Development & Software Services in Nepal — Yugya";
 const SERVICES_DESCRIPTION =
-  "Explore Yugya's service scopes: website and web app development, Linux VPS setup, .np domain and DNS guidance, business automation, and ongoing maintenance in Nepal.";
+  "Website design and development, hosting and server setup, domain guidance, automation and maintenance in Nepal — with clear deliverables, written quotes and full ownership.";
 
 export const metadata = pageMetadata({
   title: SERVICES_TITLE,
   description: SERVICES_DESCRIPTION,
   path: "/services/",
   ogDescription:
-    "Itemized technology services with defined deliverables, honest constraints, and clear handover terms.",
+    "See what each service includes, what you provide, what it costs to run and what happens after delivery.",
 });
 
 const servicesJsonLd = {
@@ -38,26 +40,28 @@ export default function ServicesPage() {
         <div className="shell">
           <div className="page-hero-grid">
             <div>
-              <span className="hero-kicker">Service offerings &amp; scopes</span>
-              <h1>Defined capabilities, itemized deliverables.</h1>
+              <span className="hero-kicker">Services for businesses in Nepal</span>
+              <h1>Websites and software, clearly explained.</h1>
               <p className="lead">
-                Every Yugya engagement is structured around an explicit operational requirement, a
-                concrete deliverable, and documented handover.
+                Below you&apos;ll see what each service is, who it helps, what you receive and what
+                it costs to keep running. If you&apos;re not sure which one fits, describe what you
+                want and we&apos;ll work it out together.
               </p>
               <p className="page-note">
-                Below is a breakdown of what we build, who it is for, what the deliverable
-                includes, and what happens once the project is shipped.
+                Each section also lists what you provide, what you keep paying for and what happens
+                after delivery.
               </p>
             </div>
 
             <div className="page-aside">
               <h2>On this page</h2>
               <ul>
-                <li><span className="num">01</span><a href="#web-development">Website &amp; web app development</a></li>
-                <li><span className="num">02</span><a href="#server-infrastructure">Linux server setup &amp; deployment</a></li>
-                <li><span className="num">03</span><a href="#domain-dns">Domain guidance &amp; DNS</a></li>
-                <li><span className="num">04</span><a href="#automation">Business automation &amp; tooling</a></li>
+                <li><span className="num">01</span><a href="#web-development">Websites &amp; web apps</a></li>
+                <li><span className="num">02</span><a href="#server-infrastructure">Hosting &amp; servers</a></li>
+                <li><span className="num">03</span><a href="#domain-dns">Domain &amp; web address</a></li>
+                <li><span className="num">04</span><a href="#automation">Automation &amp; AI</a></li>
                 <li><span className="num">05</span><a href="#maintenance">Ongoing maintenance</a></li>
+                <li><span className="num">06</span><a href="#demos">Interactive demonstrations</a></li>
               </ul>
             </div>
           </div>
@@ -70,15 +74,15 @@ export default function ServicesPage() {
             <aside className="service-rail" aria-label="Service sections">
               <p className="rail-label">Services</p>
               <ul>
-                <li><a href="#web-development"><span className="num">01</span>Web development</a></li>
-                <li><a href="#server-infrastructure"><span className="num">02</span>Server infrastructure</a></li>
-                <li><a href="#domain-dns"><span className="num">03</span>Domain &amp; DNS</a></li>
-                <li><a href="#automation"><span className="num">04</span>Automation</a></li>
+                <li><a href="#web-development"><span className="num">01</span>Websites &amp; web apps</a></li>
+                <li><a href="#server-infrastructure"><span className="num">02</span>Hosting &amp; servers</a></li>
+                <li><a href="#domain-dns"><span className="num">03</span>Domain &amp; web address</a></li>
+                <li><a href="#automation"><span className="num">04</span>Automation &amp; AI</a></li>
                 <li><a href="#maintenance"><span className="num">05</span>Maintenance</a></li>
               </ul>
               <p className="service-note" style={{ display: "block", border: 0, paddingTop: "1.25rem" }}>
                 <Link className="text-link" href="/contact/">
-                  Discuss a scope <span className="arrow" aria-hidden="true">↗</span>
+                  Ask about a project <span className="arrow" aria-hidden="true">↗</span>
                 </Link>
               </p>
             </aside>
@@ -110,38 +114,48 @@ export default function ServicesPage() {
                 </figure>
                 <div className="service-body">
                   <div>
-                    <h3>What it is &amp; who needs it</h3>
+                    <h3>What it is &amp; who it&apos;s for</h3>
                     <p>
-                      Custom web development for businesses, schools, and organizations that need a
-                      clear digital front door or interactive web tool. Suited for teams needing a
-                      website that is straightforward to navigate, loads reliably on mobile
-                      screens, and does not require complex proprietary hosting.
+                      A website gives your business its own place online. Customers can see what
+                      you offer, read about you and find your contact details, on a phone or a
+                      computer. We build these for shops, restaurants, schools and organisations.
+                      If you need more than information pages — accounts, bookings or an internal
+                      tool — we build web applications too.
                     </p>
-                    <h3>The problem it solves</h3>
+                    <h3>Why it matters</h3>
                     <p>
-                      Many websites become bloated with unnecessary third-party plugins, scripts,
-                      and heavy frameworks that slow down browsing and make future edits
-                      difficult. We build clean, lightweight sites that prioritize readability,
-                      fast loading, and direct contact options.
+                      Social media is useful for reaching followers, but it is not a place you own
+                      and it is not where everyone looks. A website gives you a stable address for
+                      the details customers ask for most: what you offer, photos, location and how
+                      to contact you.
                     </p>
                   </div>
                   <div>
                     <h3>What the deliverable includes</h3>
                     <ul className="deliverables">
+                      <li>A finished website checked on phones, tablets and computers</li>
                       <li>Semantic HTML5, CSS3, and JavaScript codebase without unnecessary dependencies</li>
-                      <li>Responsive layouts tested across mobile, tablet, laptop, and desktop viewports</li>
-                      <li>Bilingual architecture support (e.g. English + Nepali toggles) where required</li>
+                      <li>Bilingual structure (English + Nepali toggle) where required</li>
                       <li>Accessible structure: logical heading hierarchy, form labels, and visible keyboard focus states</li>
                       <li>Technical metadata setup: canonical URLs, OpenGraph tags, and Schema.org JSON-LD</li>
-                      <li>Complete Git repository and asset files handed over to your team</li>
+                      <li>Code and asset files handed over to you</li>
                     </ul>
                   </div>
                 </div>
                 <div className="service-note">
                   <p>
-                    <strong>After delivery:</strong> We assist with deployment to your production
-                    server or static hosting platform, provide a written guide on how to update
-                    content, and include 30 calendar days of bug fixing support.
+                    <strong>After delivery:</strong> We help publish the site and give you a short
+                    written guide for updating text and images. You own the domain, hosting account
+                    and all files. Bugs are fixed for 30 calendar days after launch.
+                  </p>
+                  <p>
+                    <strong>What you provide:</strong> Text, photos and a logo if you have them,
+                    plus one person to review the work.
+                  </p>
+                  <p>
+                    <strong>Running costs:</strong> A domain renews each year and hosting is billed
+                    monthly or yearly. Both are paid directly by you to the provider in your own
+                    account.
                   </p>
                   <Link className="text-link" href="/contact/?service=web">
                     Enquire about web development <span className="arrow" aria-hidden="true">↗</span>
@@ -153,7 +167,7 @@ export default function ServicesPage() {
                 <div className="service-head">
                   <span className="num" aria-hidden="true">02</span>
                   <div>
-                    <h2>Linux server setup, VPS &amp; deployment pipelines</h2>
+                    <h2>Hosting, servers &amp; deployment</h2>
                     <span className="service-status">Available offering</span>
                   </div>
                 </div>
@@ -164,24 +178,24 @@ export default function ServicesPage() {
                 />
                 <div className="service-body">
                   <div>
-                    <h3>What it is &amp; who needs it</h3>
+                    <h3>What it is &amp; who it&apos;s for</h3>
                     <p>
-                      Configuring and securing Linux virtual private servers (VPS) on cloud
-                      providers such as DigitalOcean, Linode, Hetzner, or AWS. Ideal for teams
-                      moving away from shared hosting who need dedicated resources, stability, and
-                      control.
+                      A server is the computer where your website lives. We set up and secure that
+                      computer, publish your site on it and document how it works. This is for
+                      teams that need dedicated resources and control rather than a shared hosting
+                      plan.
                     </p>
-                    <h3>The problem it solves</h3>
+                    <h3>Why it matters</h3>
                     <p>
-                      Default cloud server installations typically leave root password
-                      authentication enabled and firewalls disabled. We set up a documented,
-                      secure Linux environment with proper access controls and automated deployment
-                      hooks.
+                      Default server setups often leave weak access controls. We set up proper
+                      logins, a firewall and automatic security certificates, so the site is ready
+                      when customers visit. The cloud account and billing stay in your name.
                     </p>
                   </div>
                   <div>
                     <h3>What the deliverable includes</h3>
                     <ul className="deliverables">
+                      <li>A working server under your account, with written setup notes</li>
                       <li>OS provisioning (Ubuntu LTS or Debian) with dedicated non-root user and SSH key authentication</li>
                       <li>UFW firewall configuration and Fail2ban intrusion prevention rules</li>
                       <li>Reverse proxy (Caddy or Nginx) with automated Let&apos;s Encrypt TLS/SSL certificates</li>
@@ -193,10 +207,17 @@ export default function ServicesPage() {
                 </div>
                 <div className="service-note">
                   <p>
-                    <strong>After delivery:</strong> All SSH keys, server passwords, and cloud
-                    dashboard accesses remain under your direct control. We deliver a Markdown
-                    runbook explaining how to restart services, view system logs, and inspect
-                    status.
+                    <strong>After delivery:</strong> All SSH keys, server passwords and cloud
+                    dashboard access remain under your control, with a runbook for restarting
+                    services, reading logs and checking status.
+                  </p>
+                  <p>
+                    <strong>What you provide:</strong> The provider account and payment method in
+                    your name, plus any existing site files.
+                  </p>
+                  <p>
+                    <strong>Running costs:</strong> Cloud hosting is billed by the provider
+                    directly to you. We can suggest a suitable size during scoping.
                   </p>
                   <Link className="text-link" href="/contact/?service=vps">
                     Enquire about server infrastructure <span className="arrow" aria-hidden="true">↗</span>
@@ -208,7 +229,7 @@ export default function ServicesPage() {
                 <div className="service-head">
                   <span className="num" aria-hidden="true">03</span>
                   <div>
-                    <h2>Domain guidance &amp; DNS architecture</h2>
+                    <h2>Domain &amp; web address setup</h2>
                     <span className="service-status">Available offering</span>
                   </div>
                 </div>
@@ -219,24 +240,24 @@ export default function ServicesPage() {
                 />
                 <div className="service-body">
                   <div>
-                    <h3>What it is &amp; who needs it</h3>
+                    <h3>What it is &amp; who it&apos;s for</h3>
                     <p>
-                      Assistance with preparing national ccTLD documentation (specifically Nepal&apos;s
-                      official <code>.np</code> domains), purchasing commercial domains (
-                      <code>.com</code>, <code>.org</code>), and setting up reliable DNS routing.
+                      A domain is your web address, like <code>yourbusiness.com.np</code> or
+                      <code> yourbusiness.com</code>. We help you choose one, set it up and point it
+                      to your website. We also help with the paperwork for Nepal&apos;s
+                      <code> .np</code> domains.
                     </p>
-                    <h3>The problem it solves</h3>
+                    <h3>Why it matters</h3>
                     <p>
-                      In Nepal, registering a free <code>.com.np</code> domain requires specific
-                      company registration paperwork and formal cover letters that are often
-                      delayed or rejected if formatted incorrectly. In addition, missing or
-                      misconfigured email records (SPF, DKIM, DMARC) cause legitimate emails to end
-                      up in spam.
+                      Getting a <code>.np</code> address means specific documents and a correctly
+                      formatted cover letter. We help prepare them. We also set the email records
+                      that keep your messages out of spam.
                     </p>
                   </div>
                   <div>
                     <h3>What the deliverable includes</h3>
                     <ul className="deliverables">
+                      <li>A working web address pointing to your site, with the settings documented</li>
                       <li>Official Nepal <code>.np</code> application paperwork audit and cover letter preparation</li>
                       <li>DNS routing configuration on Cloudflare or provider of choice with DNSSEC support</li>
                       <li>Email authentication records: MX, SPF, DKIM, and DMARC for Google Workspace, Zoho, or private mail</li>
@@ -247,9 +268,17 @@ export default function ServicesPage() {
                 </div>
                 <div className="service-note">
                   <p>
-                    <strong>After delivery:</strong> Your domain account remains in your legal
-                    ownership. We deliver an export of all configured DNS records and configuration
-                    steps so any developer can maintain them.
+                    <strong>After delivery:</strong> The domain account stays in your legal
+                    ownership. You get an export of all settings and written steps, so any
+                    developer can take over.
+                  </p>
+                  <p>
+                    <strong>What you provide:</strong> Your registration documents and the account
+                    details in your name.
+                  </p>
+                  <p>
+                    <strong>Running costs:</strong> Domain renewal is paid directly by you to the
+                    registrar, usually each year.
                   </p>
                   <Link className="text-link" href="/contact/?service=dns">
                     Enquire about domain &amp; DNS <span className="arrow" aria-hidden="true">↗</span>
@@ -261,7 +290,7 @@ export default function ServicesPage() {
                 <div className="service-head">
                   <span className="num" aria-hidden="true">04</span>
                   <div>
-                    <h2>Business automation &amp; custom tooling</h2>
+                    <h2>Automation &amp; practical AI</h2>
                     <span className="service-status">Scoped engagement</span>
                   </div>
                 </div>
@@ -272,22 +301,22 @@ export default function ServicesPage() {
                 />
                 <div className="service-body">
                   <div>
-                    <h3>What it is &amp; who needs it</h3>
+                    <h3>What it is &amp; who it&apos;s for</h3>
                     <p>
-                      Lightweight scripts, automated data processing routines, and utility tools
-                      written in Python or Node.js. For teams that spend time manually re-entering
-                      or copying data across spreadsheets, forms, or messaging channels.
+                      If your team copies the same data from one place to another every week, a
+                      small tool can do that job for you. We build scripts and simple tools, and
+                      use AI where it genuinely helps the task.
                     </p>
-                    <h3>The problem it solves</h3>
+                    <h3>Why it matters</h3>
                     <p>
-                      Repetitive manual data entry is slow and prone to typographical errors. We
-                      write straightforward, well-documented scripts to automate these tasks with
-                      clear logging.
+                      Repeated manual entry is slow and prone to typos. We document the inputs and
+                      rules, then build a tool with clear logs so you can see what it did.
                     </p>
                   </div>
                   <div>
                     <h3>What the deliverable includes</h3>
                     <ul className="deliverables">
+                      <li>A tool you can run, with a short instruction guide</li>
                       <li>Workflow discovery: documenting inputs, transformation rules, and output requirements</li>
                       <li>Standalone Python or Node.js script with error handling and logging</li>
                       <li>Local SQLite or CSV export pipeline for structured storage</li>
@@ -298,9 +327,16 @@ export default function ServicesPage() {
                 </div>
                 <div className="service-note">
                   <p>
-                    <strong>After delivery:</strong> We verify sample runs together with your team,
-                    demonstrate how error handling works, and document how to update parameters as
-                    business requirements change.
+                    <strong>After delivery:</strong> We test sample runs with your team, show how
+                    errors are reported and document how to change the rules later.
+                  </p>
+                  <p>
+                    <strong>What you provide:</strong> A real example of the repeated task and the
+                    files or systems it uses.
+                  </p>
+                  <p>
+                    <strong>Running costs:</strong> We list any services the tool needs in the
+                    written quote.
                   </p>
                   <Link className="text-link" href="/contact/?service=automation">
                     Enquire about custom automation <span className="arrow" aria-hidden="true">↗</span>
@@ -323,22 +359,22 @@ export default function ServicesPage() {
                 />
                 <div className="service-body">
                   <div>
-                    <h3>What it is &amp; who needs it</h3>
+                    <h3>What it is &amp; who it&apos;s for</h3>
                     <p>
-                      Monthly operational checkups and maintenance for deployed websites and
-                      servers. For organizations without full-time in-house engineering staff that
-                      need someone dependable to keep their systems updated.
+                      Websites and servers need occasional checkups. We handle updates, security
+                      checks, backups and small fixes for teams without full-time technical staff.
                     </p>
-                    <h3>The problem it solves</h3>
+                    <h3>Why it matters</h3>
                     <p>
-                      Deployed websites require occasional updates: security package upgrades, SSL
-                      certificate checks, and routine backups. We provide scheduled upkeep so
-                      systems remain operational.
+                      Updates and certificates expire; backups need checking. Without a routine,
+                      small problems are found late. We do the checks and send a short summary each
+                      cycle.
                     </p>
                   </div>
                   <div>
                     <h3>What the deliverable includes</h3>
                     <ul className="deliverables">
+                      <li>A short written summary after each billing cycle</li>
                       <li>Monthly server OS security patching and package updates</li>
                       <li>SSL certificate status verification and DNS monitoring</li>
                       <li>Database and asset backup verification</li>
@@ -349,9 +385,16 @@ export default function ServicesPage() {
                 </div>
                 <div className="service-note">
                   <p>
-                    <strong>After delivery:</strong> At the end of each billing cycle, you receive a
-                    concise summary report outlining maintenance actions taken and system health
-                    status.
+                    <strong>After delivery:</strong> At the end of each billing cycle you get a
+                    short summary of what was done and the current status.
+                  </p>
+                  <p>
+                    <strong>What you provide:</strong> Access to the site and hosting account, and
+                    a contact for approving changes.
+                  </p>
+                  <p>
+                    <strong>Running costs:</strong> Billed monthly for the agreed scope. Hosting and
+                    domain renewals are still paid directly by you.
                   </p>
                   <Link className="text-link" href="/contact/?service=maintenance">
                     Enquire about monthly maintenance <span className="arrow" aria-hidden="true">↗</span>
@@ -363,15 +406,103 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section section-soft" aria-labelledby="boundaries-title">
+      <section className="section rule-top" id="demos" aria-labelledby="services-demos-title">
         <div className="shell">
           <div className="section-head">
             <span className="section-index" aria-hidden="true">06</span>
             <div>
-              <h2 id="boundaries-title">Clear scopes: confirmed, custom, and out-of-scope.</h2>
+              <h2 id="services-demos-title">See the work running, not just described.</h2>
               <p>
-                Below is a transparent distinction between services we actively deliver, custom
-                engagements that require scoping, and services that are outside our scope.
+                Try five tools in your browser. Each uses fictional sample data and labels what is
+                real, simulated or sample. Nothing is installed and no signup is needed.
+              </p>
+            </div>
+          </div>
+
+          <DemoIndex />
+
+          <p className="demo-index-more">
+            <Link className="text-link" href="/work/#demos">
+              Read the build notes for every demo <span className="arrow" aria-hidden="true">↗</span>
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="services-faq-title">
+        <div className="shell">
+          <div className="section-head">
+            <span className="section-index" aria-hidden="true">07</span>
+            <div>
+              <h2 id="services-faq-title">Questions before your first website.</h2>
+              <p>
+                Short answers to the things people usually ask before they contact us. More
+                questions are answered on the <Link href="/contact/">contact page</Link>.
+              </p>
+            </div>
+          </div>
+
+          <div className="faq">
+            <details>
+              <summary>Do I need to understand technical terms?</summary>
+              <div className="faq-answer">
+                <p>
+                  No. Tell us what your business does and what you want customers to be able to
+                  do. We&apos;ll explain any terms we use.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>What will I need to give you?</summary>
+              <div className="faq-answer">
+                <p>
+                  Text, photos and a logo if you have them, plus one person to review the work. We
+                  can help arrange content as part of the scope.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>What does a website cost to keep running?</summary>
+              <div className="faq-answer">
+                <p>
+                  A domain renews each year and hosting is billed monthly or yearly. Both are paid
+                  directly by you to the provider in your own account. We do not publish fixed
+                  packages; you get an itemised quote after we agree the scope.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>Can I update the website myself later?</summary>
+              <div className="faq-answer">
+                <p>
+                  Yes. You get a short written guide for changing text and images. If you would
+                  rather not do it yourself, minor updates are part of the monthly maintenance
+                  option.
+                </p>
+              </div>
+            </details>
+            <details>
+              <summary>What happens after launch?</summary>
+              <div className="faq-answer">
+                <p>
+                  You receive all files, access and documents. Bug fixes are included for 30
+                  calendar days after launch. After that you can maintain it yourself or continue
+                  with our monthly maintenance.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-soft" aria-labelledby="boundaries-title">
+        <div className="shell">
+          <div className="section-head">
+            <span className="section-index" aria-hidden="true">08</span>
+            <div>
+              <h2 id="boundaries-title">What we do, what we scope, and what we don&apos;t.</h2>
+              <p>
+                A clear list so you know what you are asking for.
               </p>
             </div>
           </div>
@@ -440,17 +571,17 @@ export default function ServicesPage() {
         <div className="shell">
           <div className="cta-grid">
             <div>
-              <h2 id="services-cta-title">Need help defining your project scope?</h2>
+              <h2 id="services-cta-title">Not sure which service fits? Just describe what you want.</h2>
               <p>
-                Tell us about what you want to build and your current setup. We will recommend a
-                practical, realistic approach.
+                A rough idea is enough. We&apos;ll ask a few questions, suggest a practical approach
+                and send a written quote.
               </p>
               <div className="hero-actions">
                 <Link className="btn btn-primary" href="/contact/">
                   Start a project enquiry <span className="arrow" aria-hidden="true">↗</span>
                 </Link>
                 <Link className="btn btn-secondary" href="/work/">
-                  Review project case studies
+                  See live websites
                 </Link>
               </div>
             </div>

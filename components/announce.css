@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Announcement bar
+   A single site-wide release strip above the header. Deep forest with inverse
+   tokens only: no new colours, no gradient, no shadow. The pre-paint script in
+   app/layout.tsx adds html[data-announce="off"] when a visitor has dismissed it,
+   so a returning visit never flashes the bar.
+   ========================================================================== */
+
+.announce {
+  background: var(--color-primary);
+  color: var(--color-inverse-text);
+  border-bottom: 1px solid var(--color-inverse-border);
+}
+
+[data-announce="off"] .announce {
+  display: none;
+}
+
+.announce-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 1.5rem;
+  min-height: 46px;
+  padding-block: 0.5rem;
+}
+
+.announce-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.announce-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  color: var(--color-inverse-muted);
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.announce-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-sage);
+}
+
+.announce-text {
+  color: var(--color-inverse-muted);
+}
+
+.announce-text strong {
+  color: var(--color-inverse-text);
+  font-weight: 500;
+}
+
+.announce-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.announce-link {
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-inverse-border);
+  color: var(--color-inverse-text);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: border-color var(--fast) ease;
+}
+
+.announce-link:hover {
+  border-bottom-color: var(--color-inverse-text);
+}
+
+.announce-close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-inverse-muted);
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--fast) ease, border-color var(--fast) ease;
+}
+
+.announce-close:hover {
+  border-color: var(--color-inverse-border);
+  color: var(--color-inverse-text);
+}
+
+.announce :focus-visible {
+  outline: 2px solid var(--color-inverse-text);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .announce-copy {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.2rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .announce-text {
+    grid-column: 2;
+  }
+
+  .announce-actions {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+  }
+}

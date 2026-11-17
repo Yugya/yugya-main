@@ -20,10 +20,10 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const SERVICE_LINKS = [
-  { href: "/services/#web-development", label: "Web & app development" },
-  { href: "/services/#server-infrastructure", label: "Linux VPS & deployment" },
-  { href: "/services/#domain-dns", label: "Domain & DNS guidance" },
-  { href: "/services/#automation", label: "Business automation" },
+  { href: "/services/#web-development", label: "Websites & web apps" },
+  { href: "/services/#server-infrastructure", label: "Hosting & servers" },
+  { href: "/services/#domain-dns", label: "Domain & web address" },
+  { href: "/services/#automation", label: "Automation & AI" },
   { href: "/services/#maintenance", label: "Ongoing maintenance" },
 ];
 

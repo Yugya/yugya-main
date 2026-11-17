@@ -8,14 +8,14 @@ import "@/components/demos/demos.css";
 
 const WORK_TITLE = "Web Development Portfolio & Projects — Yugya";
 const WORK_DESCRIPTION =
-  "See live client websites and technical implementations by Yugya, including Kohinoor Restaurant, Samajik Abhiyaan, Aama Pathshala, a Linux server baseline, and interactive demos.";
+  "See live websites built by Yugya for a restaurant, a Nepali news publication and a preschool, plus clearly labelled demos and technical blueprints.";
 
 export const metadata = pageMetadata({
   title: WORK_TITLE,
   description: WORK_DESCRIPTION,
   path: "/work/",
   ogDescription:
-    "Live client websites, reference architectures, and interactive software demonstrations.",
+    "Open real client sites, try interactive demos and read honestly labelled technical build notes.",
 });
 
 const workJsonLd = {
@@ -57,16 +57,14 @@ export default function WorkPage() {
           <div className="page-hero-grid">
             <div>
               <span className="hero-kicker">Live client work, builds &amp; prototypes</span>
-              <h1>Live client work and demonstrated builds.</h1>
+              <h1>Work you can open and check.</h1>
               <p className="lead">
-                Below is an honest view of our work: live client websites, an internal
-                infrastructure blueprint, a local prototype and interactive demos. Each entry
-                states what it is.
+                Start with the live websites below. Each is on its own domain, so you can see the
+                work the way a customer would. Further down are reference setups and experiments,
+                clearly labelled and never presented as client results.
               </p>
               <p className="page-note">
-                We describe the practical requirements, visible features and engineering decisions
-                behind each project without exaggerating outcomes or publishing unverified
-                statistics.
+                We describe what is actually there. No invented metrics, testimonials or outcomes.
               </p>
             </div>
 
@@ -90,11 +88,12 @@ export default function WorkPage() {
           <div className="section-head-split">
             <div>
               <span className="hero-kicker">Live client work</span>
-              <h2 id="live-projects-title">Websites in production.</h2>
+              <h2 id="live-projects-title">Websites you can open today.</h2>
             </div>
             <p style={{ maxWidth: "30rem" }}>
-              Three real client websites, live on their own domains. Each project is shown at the
-              same scale, with its own desktop and mobile view.
+              A restaurant site with menu, rooms and contact details. A Nepali news publication
+              with category pages. A bilingual preschool site with admissions information. Open
+              any of them.
             </p>
           </div>
           <LiveProjectEntries />
@@ -106,11 +105,11 @@ export default function WorkPage() {
           <div className="section-head-split">
             <div>
               <span className="hero-kicker">Build notes &amp; prototypes</span>
-              <h2 id="build-notes-title">Blueprints and experiments.</h2>
+              <h2 id="build-notes-title">How we think about systems.</h2>
             </div>
             <p style={{ maxWidth: "30rem" }}>
-              These entries are not live client sites: a reference server baseline and a local
-              prototype.
+              These are not live client sites. One is a reference server setup; the other is a
+              personal experiment. Both are labelled.
             </p>
           </div>
 
@@ -282,7 +281,7 @@ export default function WorkPage() {
           <div className="section-head-split">
             <div>
               <span className="hero-kicker">Interactive demonstrations</span>
-              <h2 id="demos-title">Five demos you can operate yourself.</h2>
+              <h2 id="demos-title">Try five demos in your browser.</h2>
             </div>
             <Link className="text-link" href="/contact/">
               Discuss a build <span className="arrow" aria-hidden="true">↗</span>
@@ -304,19 +303,18 @@ export default function WorkPage() {
             <div>
               <span className="hero-kicker">Portfolio transparency</span>
               <h2 id="transparency-title" className="about-statement">
-                Clear representation of our work.
+                What we can and can&apos;t show.
               </h2>
             </div>
             <div>
               <p>
-                This page presents projects, infrastructure reference setups, and personal
-                prototypes that have been built and verified by our team.
+                Live client sites are linked here so you can check them yourself. Reference setups,
+                prototypes and demos are labelled as such, and never shown as client results.
               </p>
               <p>
-                We do not publish unverified client logos, unconfirmed partnerships, or invented
-                outcome metrics. Where work involves private client systems or confidential
-                requirements, we discuss technical architecture and approaches directly during
-                scoping conversations.
+                We do not publish client logos, testimonials or results we cannot verify. Where
+                work involves private client systems or confidential requirements, we discuss the
+                approach directly during scoping.
               </p>
               <p>
                 <strong>
@@ -338,10 +336,10 @@ export default function WorkPage() {
         <div className="shell">
           <div className="cta-grid">
             <div>
-              <h2 id="work-cta-title">Have a project requirement to discuss?</h2>
+              <h2 id="work-cta-title">Want something similar for your business?</h2>
               <p>
-                Tell us about your website, server setup, or technical requirement. We will review
-                your goals and provide an honest assessment of scope and architecture.
+                Tell us what you need. We&apos;ll look at these examples, ask a few questions and
+                tell you what&apos;s realistic.
               </p>
               <div className="hero-actions">
                 <Link className="btn btn-primary" href="/contact/">

@@ -5,41 +5,71 @@ import { faqPageNode, type FaqItem } from "@/lib/schema";
 
 const CONTACT_TITLE = "Contact Yugya — Website Development Enquiry";
 const CONTACT_DESCRIPTION =
-  "Contact Yugya to discuss a website, web app, Linux server, domain, or automation project in Nepal. Direct email, clear scoping, and replies within 1–2 business days.";
+  "Tell Yugya about your business and what you need online. No technical brief required. Written scope, itemised quote and a reply within 1–2 business days.";
 
 export const metadata = pageMetadata({
   title: CONTACT_TITLE,
   description: CONTACT_DESCRIPTION,
   path: "/contact/",
   ogDescription:
-    "Send your project requirements to Yugya. Transparent scoping and direct communication.",
+    "Start with a plain message. We reply with questions, a suggested approach and a written quote.",
 });
 
 const CONTACT_FAQS: FaqItem[] = [
   {
+    question: "How much does a business website cost in Nepal?",
+    answer:
+      "It depends on the pages, features and content work. We do not publish fixed packages because two projects with the same page count can need very different work. After a short requirements review, we send an itemised scope and a written quote. Domain and hosting are paid directly by you to the provider.",
+  },
+  {
+    question: "How long does it take to build a website?",
+    answer:
+      "It depends on the number of pages, the content you provide and the features involved. We give you a realistic timeline in the written quote after we review your requirements. We do not promise a fixed delivery time before we know the scope.",
+  },
+  {
+    question: "Do I need to buy a domain separately?",
+    answer:
+      "A domain is your web address, such as yourbusiness.com.np. The account is created in your name and billed directly to you. If you want a Nepal .np address, we help prepare the required paperwork.",
+  },
+  {
+    question: "Do I need hosting?",
+    answer:
+      "Yes. Hosting is the computer where your website lives. We set it up in an account you own and pay for directly, such as Cloudflare Pages or a cloud server. We do not resell shared hosting.",
+  },
+  {
+    question: "Can I update my website later?",
+    answer:
+      "Yes. You receive a short written guide for changing text and images. If you would rather not do it yourself, minor updates are part of the monthly maintenance option.",
+  },
+  {
+    question: "Will my website work on mobile phones?",
+    answer:
+      "Yes. We check layouts on phones, tablets and computers before launch.",
+  },
+  {
+    question: "Can you redesign an existing website?",
+    answer:
+      "Yes. Send us the current address and what you would like changed. We review it and send a written scope and quote.",
+  },
+  {
+    question: "What happens after my website goes live?",
+    answer:
+      "We hand over all files, access and documents. Bug fixes are included for 30 calendar days after launch. After that you can maintain it yourself or use our monthly maintenance service.",
+  },
+  {
+    question: "Who maintains the website?",
+    answer:
+      "That is your choice. We provide the documents and access for your own team, or you can use our scheduled monthly maintenance for updates, checks and small fixes.",
+  },
+  {
     question: "How is work billed?",
     answer:
-      "Engagements are typically billed in milestones: an initial deposit upon project kick-off, a progress milestone after architecture and design approval, and the balance upon deployment and system handover.",
-  },
-  {
-    question: "Where are websites hosted?",
-    answer:
-      "We configure hosting under accounts owned directly by you (such as Cloudflare Pages, DigitalOcean, or Linode). You maintain direct control over your infrastructure provider and billing.",
-  },
-  {
-    question: "What post-launch support is included?",
-    answer:
-      "Projects include 30 calendar days of bug fixing support following deployment. For continuous feature additions or regular server patching, we offer scheduled monthly maintenance.",
+      "By milestone: a deposit at kick-off, a progress milestone after the plan is approved, and the balance on deployment and handover.",
   },
   {
     question: "Do you assist with .com.np domain registration?",
     answer:
-      "Yes. In Nepal, official .np domains are administered by Mercantile Communication. We help prepare the required cover letters and registration documentation.",
-  },
-  {
-    question: "How is a project priced?",
-    answer:
-      "Pricing is based on the scope we agree together: the number of pages or screens, the complexity of the interface, integrations, content work, and the server setup required. We do not publish fixed packages because two projects with the same page count can need very different engineering. After a short requirements review we provide an itemized scope and a written quote.",
+      "Yes. In Nepal, official .np domains are administered by Mercantile Communication. We help prepare the cover letters and registration documentation.",
   },
 ];
 
@@ -65,14 +95,15 @@ export default function ContactPage() {
           <div className="page-hero-grid">
             <div>
               <span className="hero-kicker">Direct contact</span>
-              <h1>Let’s discuss your technical requirements.</h1>
+              <h1>Tell us what you need. We&apos;ll take it from there.</h1>
               <p className="lead">
-                Whether you need a website built, a Linux server configured, or domain and DNS
-                guidance, share your project details below.
+                You don&apos;t need a technical brief or the right vocabulary. Tell us what your
+                business does and what you want online. We&apos;ll ask a few questions and send a
+                written scope and quote.
               </p>
               <p className="page-note">
-                We review project requirements and provide a practical assessment of scope,
-                timeline, and architecture.
+                We review each enquiry and reply with questions, a suggested approach and a written
+                quote.
               </p>
             </div>
 
@@ -93,10 +124,10 @@ export default function ContactPage() {
           <div className="contact-grid">
             <div className="contact-guide">
               <span className="hero-kicker">Direct email</span>
-              <h2>Prefer to write from your own email client?</h2>
+              <h2>Prefer to email us directly?</h2>
               <p>
-                Send your brief directly to the studio. Include the context below so the first
-                reply can be useful.
+                Send a short note to hello@yugya.com. The details below help us reply usefully, but
+                you don&apos;t need all of them.
               </p>
               <a className="direct-email" href="mailto:hello@yugya.com">
                 hello@yugya.com <span aria-hidden="true">↗</span>
@@ -110,46 +141,44 @@ export default function ContactPage() {
                 <li>
                   <span className="num" aria-hidden="true">01</span>
                   <span>
-                    <strong>Project overview:</strong> What does your organization do, and what
-                    problem are you solving?
+                    <strong>Your business:</strong> What do you do, and who are your customers?
                   </span>
                 </li>
                 <li>
                   <span className="num" aria-hidden="true">02</span>
                   <span>
-                    <strong>Current setup:</strong> Do you already have a domain, server, or
-                    existing website in place?
+                    <strong>What you want:</strong> A new website, changes to an existing one,
+                    hosting help, or something else? A rough idea is enough.
                   </span>
                 </li>
                 <li>
                   <span className="num" aria-hidden="true">03</span>
                   <span>
-                    <strong>Target timeline:</strong> Are you working toward a specific date or
-                    exploring options?
+                    <strong>What you already have:</strong> A Facebook page, an old website, a
+                    domain name? If you&apos;re not sure, just say so.
                   </span>
                 </li>
                 <li>
                   <span className="num" aria-hidden="true">04</span>
                   <span>
-                    <strong>Engagement scope:</strong> Are you looking for initial development,
-                    server setup, or ongoing maintenance?
+                    <strong>Any date in mind:</strong> A launch date or event, if you have one.
+                    &apos;No fixed date&apos; is fine.
                   </span>
                 </li>
               </ol>
             </div>
 
             <div className="form-panel">
-              <h2>Project enquiry form</h2>
+              <h2>Send an enquiry</h2>
               <p>
-                Fill in your details below. This form prepares your enquiry and opens your email
-                application, or copies the text to your clipboard.
+                Fill in what you know. If a field doesn&apos;t apply, leave it blank or write
+                &apos;not sure&apos;.
               </p>
 
               <div className="form-note">
-                <strong>How this form works:</strong> This form does not transmit data to an
-                external server. Clicking “Open in email client” formats your enquiry into an email
-                draft addressed to <code>hello@yugya.com</code>. You must click Send in your email
-                application. You can also copy the formatted enquiry directly to your clipboard.
+                <strong>How this form works:</strong> It prepares an email draft addressed to{" "}
+                <code>hello@yugya.com</code>. Nothing is sent until you press Send in your email
+                app. You can also copy the text to paste into webmail.
               </div>
 
               <EnquiryForm />
@@ -163,65 +192,21 @@ export default function ContactPage() {
           <div className="page-hero-grid" style={{ alignItems: "start" }}>
             <div>
               <span className="hero-kicker">Frequently asked questions</span>
-              <h2 id="faq-title">Common questions regarding engagements.</h2>
+              <h2 id="faq-title">Questions people ask before starting.</h2>
               <p>
                 Short answers to the practical questions that come up before a project begins.
               </p>
             </div>
 
             <div className="faq">
-              <details>
-                <summary>How is work billed?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Engagements are typically billed in milestones: an initial deposit upon project
-                    kick-off, a progress milestone after architecture and design approval, and the
-                    balance upon deployment and system handover.
-                  </p>
-                </div>
-              </details>
-              <details>
-                <summary>Where are websites hosted?</summary>
-                <div className="faq-answer">
-                  <p>
-                    We configure hosting under accounts owned directly by you (such as Cloudflare
-                    Pages, DigitalOcean, or Linode). You maintain direct control over your
-                    infrastructure provider and billing.
-                  </p>
-                </div>
-              </details>
-              <details>
-                <summary>What post-launch support is included?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Projects include 30 calendar days of bug fixing support following deployment.
-                    For continuous feature additions or regular server patching, we offer scheduled
-                    monthly maintenance.
-                  </p>
-                </div>
-              </details>
-              <details>
-                <summary>Do you assist with .com.np domain registration?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Yes. In Nepal, official <code>.np</code> domains are administered by Mercantile
-                    Communication. We help prepare the required cover letters and registration
-                    documentation.
-                  </p>
-                </div>
-              </details>
-              <details>
-                <summary>How is a project priced?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Pricing is based on the scope we agree together: the number of pages or
-                    screens, the complexity of the interface, integrations, content work, and the
-                    server setup required. We do not publish fixed packages because two projects
-                    with the same page count can need very different engineering. After a short
-                    requirements review we provide an itemized scope and a written quote.
-                  </p>
-                </div>
-              </details>
+              {CONTACT_FAQS.map((item) => (
+                <details key={item.question}>
+                  <summary>{item.question}</summary>
+                  <div className="faq-answer">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
             </div>
           </div>
         </div>

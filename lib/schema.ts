@@ -11,7 +11,7 @@ export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 const ORGANIZATION_DESCRIPTION =
-  "Independent technology studio in Nepal delivering websites, web applications, software tools, Linux server configurations, and technical maintenance.";
+  "Small independent technology studio in Nepal that designs and builds websites, web applications and tools, and helps with hosting, domains and maintenance.";
 
 export function organizationNode() {
   return {
@@ -118,7 +118,7 @@ export const SERVICE_NODES = [
     name: "Website & web application development",
     serviceType: "Website and web application development",
     description:
-      "Responsive websites and web applications built with semantic HTML, clean styling, and minimal script weight.",
+      "Websites customers can visit to see what a business offers and get in touch, plus web applications with accounts, bookings or logged-in areas.",
     provider: { "@id": ORGANIZATION_ID },
     areaServed: { "@type": "Country", name: "Nepal" },
     url: `${SITE_URL}/services/#web-development`,
@@ -126,10 +126,10 @@ export const SERVICE_NODES = [
   {
     "@type": "Service",
     "@id": `${SITE_URL}/services/#server-infrastructure`,
-    name: "Linux server setup, VPS & deployment pipelines",
+    name: "Hosting, servers & deployment",
     serviceType: "Linux server setup and deployment",
     description:
-      "Documented Linux VPS baselines, UFW firewall rules, Caddy or Nginx reverse proxies, and Git-based deployment.",
+      "Setup and upkeep of the server where a website lives, with documented access, security checks and hosting accounts owned by the client.",
     provider: { "@id": ORGANIZATION_ID },
     areaServed: { "@type": "Country", name: "Nepal" },
     url: `${SITE_URL}/services/#server-infrastructure`,
@@ -137,10 +137,10 @@ export const SERVICE_NODES = [
   {
     "@type": "Service",
     "@id": `${SITE_URL}/services/#domain-dns`,
-    name: "Domain guidance & DNS architecture",
+    name: "Domain & web address setup",
     serviceType: "Domain registration guidance and DNS configuration",
     description:
-      "Nepal .np application paperwork assistance, commercial TLD setup, DNS routing, and email authentication records.",
+      "Help choosing and setting up a web address, including Nepal .np paperwork, DNS settings and email records, with the account in the client's name.",
     provider: { "@id": ORGANIZATION_ID },
     areaServed: { "@type": "Country", name: "Nepal" },
     url: `${SITE_URL}/services/#domain-dns`,
@@ -148,10 +148,10 @@ export const SERVICE_NODES = [
   {
     "@type": "Service",
     "@id": `${SITE_URL}/services/#automation`,
-    name: "Business automation & custom tooling",
+    name: "Automation & practical AI",
     serviceType: "Business process automation",
     description:
-      "Lightweight Python or Node.js scripts that replace repetitive manual data work with documented, logged routines.",
+      "Small tools and scripts that take over repeated manual work such as copying data between sheets and forms, with AI used only where it helps.",
     provider: { "@id": ORGANIZATION_ID },
     areaServed: { "@type": "Country", name: "Nepal" },
     url: `${SITE_URL}/services/#automation`,
@@ -159,10 +159,10 @@ export const SERVICE_NODES = [
   {
     "@type": "Service",
     "@id": `${SITE_URL}/services/#maintenance`,
-    name: "Ongoing maintenance & technical care",
+    name: "Ongoing maintenance",
     serviceType: "Website and server maintenance",
     description:
-      "Scheduled OS package upgrades, TLS renewal checks, backup verification, and direct engineer contact.",
+      "Regular updates, security checks, backups and small fixes for websites and servers, with a short summary after each billing cycle.",
     provider: { "@id": ORGANIZATION_ID },
     areaServed: { "@type": "Country", name: "Nepal" },
     url: `${SITE_URL}/services/#maintenance`,

@@ -1,14 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, JetBrains_Mono, Newsreader } from "next/font/google";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import IntroSequence from "@/components/IntroSequence";
 import JsonLd from "@/components/JsonLd";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import SmoothScroll from "@/components/SmoothScroll";
 import { organizationNode, websiteNode } from "@/lib/schema";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 import "@/components/intro.css";
+import "@/components/announce.css";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -52,6 +55,13 @@ const themeScript = `
   } catch (error) {}
   var root = document.documentElement;
   root.classList.add("js");
+
+  // Announcement bar: hide it before paint when dismissed on this device.
+  try {
+    if (localStorage.getItem("yugya-announce") === "off") {
+      root.dataset.announce = "off";
+    }
+  } catch (error) {}
 
   // Entry sequence: full page loads only, never on back/forward, deep links or
   // reduced motion. Rendering it is CSS-only; this just turns it on in time.
@@ -154,12 +164,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to main content
         </a>
 
+        <AnnouncementBar />
+
         <SiteHeader />
 
         {children}
 
         <SiteFooter />
         <RevealOnScroll />
+        <SmoothScroll />
 
         <JsonLd data={globalJsonLd} />
       </body>

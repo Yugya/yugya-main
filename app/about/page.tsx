@@ -7,14 +7,14 @@ import { FOUNDER_NAMES } from "@/lib/site";
 
 const ABOUT_TITLE = "About Yugya — Web Development Studio in Nepal";
 const ABOUT_DESCRIPTION =
-  "Learn how Yugya works: an independent web development studio in Kapilvastu / Rupandehi, Nepal, focused on clear scoping, clean code, and documented handover.";
+  "Yugya is a small, independent web development studio in Nepal. Meet the two founders and learn how we scope, build and hand over each project.";
 
 export const metadata = pageMetadata({
   title: ABOUT_TITLE,
   description: ABOUT_DESCRIPTION,
   path: "/about/",
   ogDescription:
-    "Founded in Nepal to deliver dependable websites, software, and server infrastructure.",
+    "Two founders in Kapilvastu / Rupandehi building websites and tools, with direct contact and full handover.",
 });
 
 const aboutJsonLd = {
@@ -39,15 +39,15 @@ export default function AboutPage() {
           <div className="page-hero-grid">
             <div>
               <span className="hero-kicker">About Yugya</span>
-              <h1>Practical engineering for real requirements.</h1>
+              <h1>A small studio you can talk to directly.</h1>
               <p className="lead">
-                Yugya is an independent technology studio founded in Nepal. We build websites,
-                software tools, and server setups for organizations that need technology to run
-                reliably.
+                Yugya is an independent technology studio in Nepal. We build websites and tools for
+                businesses, schools and organisations. Two founders work directly with clients
+                from the first message to handover.
               </p>
               <p className="page-note">
-                Our focus is on clear requirements, clean code, direct communication, and handover
-                of systems that clients can operate independently.
+                We agree the scope in writing, keep the work understandable and hand over
+                everything when it is done.
               </p>
             </div>
 
@@ -75,23 +75,21 @@ export default function AboutPage() {
           <div className="about-grid">
             <div>
               <span className="hero-kicker">Company purpose</span>
-              <h2 className="about-statement">Technology that serves the task at hand.</h2>
+              <h2 className="about-statement">Useful technology, honestly explained.</h2>
             </div>
             <div>
               <p className="lead">
-                Yugya was started in Nepal with a simple direction: to provide dependable technical
-                work for businesses, educational institutions, and organizations that need clear
-                digital execution.
+                Yugya was started in Nepal to help local businesses and organisations get a clear,
+                dependable website without wading through jargon.
               </p>
               <p>
-                Many organizations struggle with web systems that are overly complicated, difficult
-                to maintain, or dependent on expensive ongoing vendor lock-in. We focus on
-                practical solutions: static and server-rendered websites with lean code, documented
-                Linux servers, and straightforward automation scripts.
+                Some projects need only an information site. Others need a web app, a server setup
+                or a tool for repeated work. We use well-supported tools and document what we
+                build, so changes later stay straightforward.
               </p>
               <p>
-                We work directly with clients through every phase of a project, from clarifying
-                requirements to final deployment and handover.
+                You work directly with the people doing the work, from the first question to
+                handover.
               </p>
 
               <dl className="ledger-note">
@@ -118,10 +116,9 @@ export default function AboutPage() {
           <div className="section-head">
             <span className="section-index" aria-hidden="true">01</span>
             <div>
-              <h2>Standards that guide our technical delivery.</h2>
+              <h2>How we work.</h2>
               <p>
-                These principles determine how we evaluate project requirements, write code,
-                configure servers, and support clients after launch.
+                Four commitments that shape every project.
               </p>
             </div>
           </div>
@@ -129,37 +126,34 @@ export default function AboutPage() {
           <div className="principle-list-large">
             <div className="principle-row reveal">
               <span className="num" aria-hidden="true">01</span>
-              <h3>Clarity before implementation</h3>
+              <h3>Agree first, build second</h3>
               <p>
-                We define project goals, user requirements, technical constraints, and handover
-                expectations before writing code. This prevents misunderstandings and unnecessary
-                rework.
+                We agree what you need, what you will provide and what it costs before any work
+                begins. That keeps surprises out of the process.
               </p>
             </div>
             <div className="principle-row reveal">
               <span className="num" aria-hidden="true">02</span>
-              <h3>Proven tools over trend chasing</h3>
+              <h3>Tools that stay simple to maintain</h3>
               <p>
-                We choose tools with established stability and documentation. We avoid complex
-                software stacks when simpler, battle-tested solutions meet the operational need.
+                We choose tools with a track record and good documentation, not stacks that add
+                upkeep for no clear reason.
               </p>
             </div>
             <div className="principle-row reveal">
               <span className="num" aria-hidden="true">03</span>
-              <h3>Transparent system handover</h3>
+              <h3>You own what we build</h3>
               <p>
-                Source code repositories, domain settings, and server credentials are provided
-                directly to the client. Systems are documented so any competent developer can
-                maintain them.
+                Files, domain settings and server access are handed over to you, with notes any
+                developer can follow.
               </p>
             </div>
             <div className="principle-row reveal">
               <span className="num" aria-hidden="true">04</span>
-              <h3>Truth in technical descriptions</h3>
+              <h3>Honest descriptions</h3>
               <p>
-                We describe our capabilities, tools, and testing procedures accurately. We do not
-                invent statistics, publish unverified client logos, or make unsupported performance
-                claims.
+                We say what we built and what we did not. No invented numbers, logos or results —
+                the work is there for you to check.
               </p>
             </div>
           </div>
@@ -171,10 +165,10 @@ export default function AboutPage() {
           <div className="section-head">
             <span className="section-index" aria-hidden="true">02</span>
             <div>
-              <h2 id="founders-title">The two people behind the studio.</h2>
+              <h2 id="founders-title">The two people you&apos;ll work with.</h2>
               <p>
-                Yugya was founded by {FOUNDER_NAMES}. Project enquiries can go to either
-                co-founder directly.
+                Yugya was founded by {FOUNDER_NAMES}. You can email either co-founder directly
+                about a project.
               </p>
             </div>
           </div>
@@ -188,17 +182,17 @@ export default function AboutPage() {
           <div className="about-grid">
             <div>
               <span className="hero-kicker">Location &amp; collaboration</span>
-              <h2 id="location-title">Where we operate &amp; how we communicate.</h2>
+              <h2 id="location-title">Based in Nepal. Easy to reach.</h2>
             </div>
             <div>
               <p>
                 Yugya is based in Kapilvastu / Rupandehi, Nepal (UTC +5:45). We work with local
-                organizations in Nepal as well as remote clients.
+                organisations in Nepal as well as remote clients.
               </p>
               <p>
-                We collaborate using version-controlled repositories, clear milestones, written
-                documentation, and direct email or messaging. Clients communicate directly with the
-                engineer working on their project.
+                We use email, written notes and direct messages. You speak directly with the
+                engineer on your project. We do not run a 24/7 call centre; we aim to reply within
+                1–2 business days during business hours.
               </p>
 
               <div className="location-panel">
@@ -236,17 +230,17 @@ export default function AboutPage() {
         <div className="shell">
           <div className="cta-grid">
             <div>
-              <h2 id="about-cta-title">Looking for practical technical execution?</h2>
+              <h2 id="about-cta-title">Want to know who you&apos;d be working with?</h2>
               <p>
-                We are ready to review your project requirements, website plans, or server needs and
-                provide an honest assessment of scope and next steps.
+                Send a short message about your business and what you need online. We&apos;ll reply
+                with questions and a written quote.
               </p>
               <div className="hero-actions">
                 <Link className="btn btn-primary" href="/contact/">
                   Discuss your requirements <span className="arrow" aria-hidden="true">↗</span>
                 </Link>
                 <Link className="btn btn-secondary" href="/work/">
-                  View project case studies
+                  See live websites
                 </Link>
               </div>
             </div>
